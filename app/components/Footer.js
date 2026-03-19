@@ -4,7 +4,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  ArrowUpRight,
 } from "lucide-react";
 
 const quickLinks = [
@@ -12,7 +11,7 @@ const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Become a Dealer", href: "/dealership" },
-  { name: "Finance", href: "/loans" },
+  { name: "Sell a Car", href: "/loans" },
   { name: "Contact Us", href: "/contact" },
 ];
 
@@ -21,35 +20,46 @@ const services = [
   { name: "Legal Services", href: "/services#legal" },
   { name: "Lubricants & Oils", href: "/services#lubricants" },
   { name: "Transport & Cargo", href: "/services#transport" },
-  { name: "Loans & Finance", href: "/loans" },
+  { name: "Sell a Car", href: "/loans" },
+  { name: "Trustee Services", href: "/services#legal" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900">
+    <footer className="bg-brand-950">
+      {/* Gold accent line */}
+      <div className="h-[3px] bg-linear-to-r from-brand-600 via-gold-400 to-brand-600" />
+
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Main footer */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-          {/* Brand — widest */}
+          {/* Brand */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-extrabold text-xs tracking-tight">BS</span>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-9 h-9 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center border border-white/10">
+                <span className="text-white font-extrabold text-sm tracking-tight">
+                  BG
+                </span>
               </div>
-              <span className="text-[15px] font-bold text-white tracking-tight">
-                Blue Streaks India
-              </span>
+              <div className="flex flex-col">
+                <span className="text-[15px] font-bold text-white tracking-tight leading-tight">
+                  Bluestreak Group
+                </span>
+                <span className="text-[10px] font-medium text-slate-500 tracking-wider uppercase leading-tight">
+                  India Pvt. Ltd.
+                </span>
+              </div>
             </div>
             <p className="text-slate-400 text-[13.5px] leading-relaxed max-w-xs">
-              Your trusted partner for premium lubricants, automobile services,
-              legal consultancy, transport &amp; cargo, and financial solutions
-              across India.
+              A diversified business group delivering premium solutions across
+              automobiles, lubricants, legal advisory, transport &amp; cargo,
+              and financial services across India.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h3 className="text-[11.5px] font-semibold text-slate-400 uppercase tracking-wider mb-4">
+            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
               Company
             </h3>
             <ul className="space-y-2.5">
@@ -68,8 +78,8 @@ export default function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h3 className="text-[11.5px] font-semibold text-slate-400 uppercase tracking-wider mb-4">
-              Services
+            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
+              Our Businesses
             </h3>
             <ul className="space-y-2.5">
               {services.map((link) => (
@@ -87,40 +97,55 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h3 className="text-[11.5px] font-semibold text-slate-400 uppercase tracking-wider mb-4">
+            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
               Contact
             </h3>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 mt-0.5 text-brand-400 shrink-0" />
-                <span className="text-[13.5px] text-slate-400">+91 98765 43210</span>
+                <Phone className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
+                <span className="text-[13.5px] text-slate-400">
+                  +91 98765 43210
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 mt-0.5 text-brand-400 shrink-0" />
-                <span className="text-[13.5px] text-slate-400">info@bluestreaksindia.com</span>
+                <Mail className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
+                <span className="text-[13.5px] text-slate-400">
+                  info@bluestreaksindia.com
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 mt-0.5 text-brand-400 shrink-0" />
-                <span className="text-[13.5px] text-slate-400">Mumbai, Maharashtra, India</span>
+                <MapPin className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
+                <span className="text-[13.5px] text-slate-400">
+                  Mumbai, Maharashtra, India
+                </span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 mt-0.5 text-brand-400 shrink-0" />
-                <span className="text-[13.5px] text-slate-400">Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM</span>
+                <Clock className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
+                <span className="text-[13.5px] text-slate-400">
+                  Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
+                </span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12.5px] text-slate-500">
-            &copy; {new Date().getFullYear()} Blue Streaks India. All rights reserved.
+            &copy; {new Date().getFullYear()} Bluestreak India Private Limited.
+            All rights reserved.
           </p>
           <div className="flex gap-5">
-            <a href="#" className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors">
+            <a
+              href="#"
+              className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors">
+            <a
+              href="#"
+              className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors"
+            >
               Terms of Service
             </a>
           </div>

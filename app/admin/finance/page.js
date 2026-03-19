@@ -1,14 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Banknote, Search } from "lucide-react";
-
-const loanTypeLabels = {
-  gold: "Gold Loan",
-  bike: "Bike Loan",
-  car: "Car Loan",
-  asset: "Asset Loan",
-};
+import { Car, Search } from "lucide-react";
 
 export default function AdminFinance() {
   const [data, setData] = useState([]);
@@ -29,18 +22,19 @@ export default function AdminFinance() {
     (d) =>
       d.name?.toLowerCase().includes(search.toLowerCase()) ||
       d.phone?.toLowerCase().includes(search.toLowerCase()) ||
-      d.loanType?.toLowerCase().includes(search.toLowerCase())
+      d.carMake?.toLowerCase().includes(search.toLowerCase()) ||
+      d.carModel?.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <div>
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Banknote className="w-6 h-6 text-brand-600" />
-          Finance Applications
+          <Car className="w-6 h-6 text-brand-600" />
+          Sell Car Enquiries
         </h1>
         <p className="text-[13px] text-slate-500 mt-1">
-          View all loan applications
+          View all sell-a-car submissions
         </p>
       </div>
 
@@ -51,7 +45,7 @@ export default function AdminFinance() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by name, phone, or loan type..."
+            placeholder="Search by name, phone, or car..."
             className="w-full h-10 pl-9 pr-3.5 border border-slate-200 rounded-lg text-[13px] text-slate-700 placeholder:text-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
           />
         </div>
@@ -63,19 +57,16 @@ export default function AdminFinance() {
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50/50">
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Applicant
+                  Contact
                 </th>
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Phone
+                  Car
                 </th>
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Loan Type
+                  Year / KM
                 </th>
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Asset Type
-                </th>
-                <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
-                  Amount
+                  Expected Price
                 </th>
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
                   Location
@@ -88,7 +79,7 @@ export default function AdminFinance() {
             <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="px-5 py-12 text-center">
+                  <td colSpan={6} className="px-5 py-12 text-center">
                     <div className="flex justify-center">
                       <div className="w-6 h-6 border-2 border-brand-600 border-t-transparent rounded-full animate-spin" />
                     </div>
@@ -97,10 +88,10 @@ export default function AdminFinance() {
               ) : filtered.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={7}
+                    colSpan={6}
                     className="px-5 py-12 text-center text-[14px] text-slate-400"
                   >
-                    No finance applications found
+                    No sell car enquiries found
                   </td>
                 </tr>
               ) : (
@@ -109,26 +100,36 @@ export default function AdminFinance() {
                     key={item._id}
                     className="hover:bg-slate-50/50 transition-colors"
                   >
-                    <td className="px-5 py-3.5 text-[13px] font-semibold text-slate-900">
-                      {item.name}
-                    </td>
-                    <td className="px-5 py-3.5 text-[13px] text-slate-600">
-                      {item.phone}
+                    <td className="px-5 py-3.5">
+                      <p className="text-[13px] font-semibold text-slate-900">
+                        {item.name}
+                      </p>
+                      <p className="text-[12px] text-slate-500">{item.phone}</p>
+                      {item.email && (
+                        <p className="text-[12px] text-slate-400">{item.email}</p>
+                      )}
                     </td>
                     <td className="px-5 py-3.5">
-                      <span className="inline-block px-2.5 py-1 bg-amber-50 text-amber-700 text-[12px] font-medium rounded-md">
-                        {loanTypeLabels[item.loanType] || item.loanType}
-                      </span>
+                      <p className="text-[13px] font-medium text-slate-900">
+                        {item.carMake} {item.carModel}
+                      </p>
+                      {item.variant && (
+                        <p className="text-[12px] text-slate-500">{item.variant}</p>
+                      )}
                     </td>
                     <td className="px-5 py-3.5 text-[13px] text-slate-600">
-                      {item.assetType || <span className="text-slate-300">&mdash;</span>}
+                      {[item.year, item.kmDriven ? `${item.kmDriven} km` : ""]
+                        .filter(Boolean)
+                        .join(" / ") || "—"}
                     </td>
                     <td className="px-5 py-3.5 text-[13px] font-medium text-slate-900">
-                      &#8377;{item.loanAmount}
+                      {item.expectedPrice
+                        ? `₹${item.expectedPrice}`
+                        : <span className="text-slate-300">—</span>}
                     </td>
                     <td className="px-5 py-3.5 text-[13px] text-slate-600">
-                      {[item.district, item.state].filter(Boolean).join(", ") || (
-                        <span className="text-slate-300">&mdash;</span>
+                      {[item.city, item.state].filter(Boolean).join(", ") || (
+                        <span className="text-slate-300">—</span>
                       )}
                     </td>
                     <td className="px-5 py-3.5 text-[12px] text-slate-400">
@@ -147,7 +148,7 @@ export default function AdminFinance() {
       </div>
 
       <p className="text-[12px] text-slate-400 mt-3">
-        Showing {filtered.length} of {data.length} applications
+        Showing {filtered.length} of {data.length} enquiries
       </p>
     </div>
   );

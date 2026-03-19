@@ -1,172 +1,125 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Droplets,
-  Settings,
-  Waves,
-  Snowflake,
-  CircleDot,
-  Zap,
-  Factory,
-  HardHat,
-  Gauge,
-  Fuel,
-  ShieldCheck,
+  ArrowRight,
+  Award,
+  Globe,
   Users,
-  Layers,
-  HeadphonesIcon,
+  ShieldCheck,
   Car,
-  Scale,
+  Droplets,
   Truck,
   Banknote,
-  ArrowRight,
+  Scale,
+  Landmark,
   ChevronRight,
-  Bike,
-  IndianRupee,
-  Calendar,
-  MapPin,
+  Sparkles,
 } from "lucide-react";
 
-const serviceCategories = [
+const divisions = [
   {
-    name: "Automobiles",
-    desc: "Cars sale, service, vintage cars, spare parts & modifications",
+    name: "Bluestreak Automobiles",
+    subtitle: "Sales | Service | Spares",
     icon: Car,
+    image:
+      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&h=400&fit=crop",
     href: "/services#automobiles",
-    accent: "bg-sky-50 text-sky-600",
+    points: [
+      "New & Used Vehicles",
+      "Vehicle Servicing",
+      "Genuine Spare Parts",
+    ],
   },
   {
-    name: "Legal Services",
-    desc: "Civil, criminal & corporate legal matters, IP protection, estate planning",
-    icon: Scale,
-    href: "/services#legal",
-    accent: "bg-violet-50 text-violet-600",
-  },
-  {
-    name: "Lubricants & Oils",
-    desc: "Engine oil, gear oil, brake oil, coolants & industrial lubricants",
+    name: "Bluestreak Lubricants",
+    subtitle: "Automotive Lubricant Solutions",
     icon: Droplets,
-    href: "/services#lubricants",
-    accent: "bg-amber-50 text-amber-600",
+    image:
+      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop",
+    href: "/products",
+    points: ["Engine Oil", "Radiator Coolants", "Gear Oil"],
+    footnote:
+      "Wide Range of Engine Oils to Suit all Automotive and Heavy Vehicle Requirements",
   },
   {
-    name: "Transport & Cargo",
-    desc: "All-India shipment via air, water & road with growing fleet",
+    name: "Bluestreak Transports & Logistics",
+    subtitle: "Cargo | Shipping | Hospitality",
     icon: Truck,
+    image:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
     href: "/services#transport",
-    accent: "bg-emerald-50 text-emerald-600",
+    points: [
+      "Freight & Cargo",
+      "Shipping & Export Logistics",
+      "Hospitality & Travel",
+    ],
   },
   {
-    name: "Loans & Finance",
-    desc: "Gold, bike, car & asset loans with quick approvals",
+    name: "Sell a Car",
+    subtitle: "Best Price | Quick Sale | Hassle-Free",
     icon: Banknote,
+    image:
+      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop",
     href: "/loans",
-    accent: "bg-rose-50 text-rose-600",
+    points: [
+      "Free Valuation",
+      "Same-Day Inspection",
+      "Transparent Paperwork",
+      "Quick Payment",
+    ],
+  },
+  {
+    name: "Bluestreak Legal",
+    subtitle: "Civil | Criminal | Corporate Law",
+    icon: Scale,
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+    href: "/services#legal",
+    points: [
+      "Estate & Succession Planning",
+      "Asset Protection",
+      "Trademark & Patent",
+    ],
+  },
+  {
+    name: "Bluestreak Trustees",
+    subtitle: "Fiduciary Services & Wealth Planning",
+    icon: Landmark,
+    image:
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
+    href: "/services#legal",
+    points: [
+      "Private, Business & Charitable Trusts",
+      "Cross Border Advisory",
+      "Generational Wealth Structuring",
+    ],
   },
 ];
 
-const vehiclesForSale = [
+const whyChoose = [
   {
-    name: "Hyundai Creta SX",
-    type: "Car",
-    year: 2023,
-    spec: "1.5L Diesel, 22,000 km, Single Owner",
-    price: "₹14.5 Lakh",
-    location: "Mumbai",
-    image:
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&h=260&fit=crop",
-    tag: "Popular",
+    name: "Expertise & Experience",
+    desc: "Decades of combined expertise across diversified business verticals, delivering proven results and industry-leading solutions.",
+    icon: Award,
+    accent: "from-amber-500 to-orange-600",
   },
   {
-    name: "Maruti Suzuki Swift ZXi",
-    type: "Car",
-    year: 2022,
-    spec: "1.2L Petrol, 30,000 km, Single Owner",
-    price: "₹7.2 Lakh",
-    location: "Delhi",
-    image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=260&fit=crop",
-    tag: null,
+    name: "Global Reach",
+    desc: "Multi-business operations across states and growing international presence, connecting markets and creating value.",
+    icon: Globe,
+    accent: "from-brand-500 to-brand-700",
   },
   {
-    name: "Royal Enfield Classic 350",
-    type: "Bike",
-    year: 2023,
-    spec: "350cc, 15,000 km, 2022 Model",
-    price: "₹2.1 Lakh",
-    location: "Pune",
-    image:
-      "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=400&h=260&fit=crop",
-    tag: "New Arrival",
-  },
-  {
-    name: "Honda City V CVT",
-    type: "Car",
-    year: 2024,
-    spec: "1.5L Petrol, 8,500 km, Excellent Condition",
-    price: "₹12.8 Lakh",
-    location: "Bangalore",
-    image:
-      "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=400&h=260&fit=crop",
-    tag: null,
-  },
-  {
-    name: "KTM Duke 390",
-    type: "Bike",
-    year: 2023,
-    spec: "373cc, 6,200 km, ABS, First Owner",
-    price: "₹3.1 Lakh",
-    location: "Chennai",
-    image:
-      "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=260&fit=crop",
-    tag: "Best Seller",
-  },
-  {
-    name: "Tata Nexon EV Max",
-    type: "Car",
-    year: 2024,
-    spec: "EV, 12,000 km, Full charge range 437 km",
-    price: "₹18.7 Lakh",
-    location: "Hyderabad",
-    image:
-      "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=400&h=260&fit=crop",
-    tag: "Electric",
-  },
-];
-
-const products = [
-  { name: "Engine Oil", icon: Droplets },
-  { name: "Gear Oil", icon: Settings },
-  { name: "Hydraulic Oil", icon: Waves },
-  { name: "Coolant", icon: Snowflake },
-  { name: "Grease", icon: CircleDot },
-  { name: "Generator Oil", icon: Zap },
-  { name: "Industrial Oil", icon: Factory },
-  { name: "Road Bitumen", icon: HardHat },
-  { name: "Auto Lubricants", icon: Gauge },
-  { name: "Fuel Additives", icon: Fuel },
-];
-
-const features = [
-  {
-    name: "Quality Assurance",
-    desc: "Every product meets the highest industry standards",
-    icon: ShieldCheck,
-  },
-  {
-    name: "Expert Team",
-    desc: "Seasoned professionals across all our service verticals",
+    name: "Client-Centric Approach",
+    desc: "Every client receives tailored solutions built on trust, transparency and a deep understanding of their unique needs.",
     icon: Users,
+    accent: "from-emerald-500 to-teal-600",
   },
   {
-    name: "Wide Range",
-    desc: "Comprehensive portfolio of products and services",
-    icon: Layers,
-  },
-  {
-    name: "Customer Support",
-    desc: "Dedicated support team available when you need us",
-    icon: HeadphonesIcon,
+    name: "Integrity & Trust",
+    desc: "Our commitment to ethical business practices forms the foundation of every relationship and transaction.",
+    icon: ShieldCheck,
+    accent: "from-violet-500 to-purple-700",
   },
 ];
 
@@ -174,239 +127,190 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden min-h-[520px] md:min-h-[600px]">
-        {/* Background image */}
+      <section className="relative overflow-hidden min-h-[580px] md:min-h-[660px]">
         <Image
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&h=600&fit=crop"
-          alt="Luxury car on the road"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=700&fit=crop"
+          alt="Modern city skyline"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center scale-105"
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-brand-950/75" />
+        <div className="absolute inset-0 bg-linear-to-b from-brand-950/80 via-brand-950/70 to-brand-950/90" />
 
-        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-28 md:py-36">
-          <div className="max-w-xl">
-            <p className="inline-flex items-center gap-1.5 text-brand-300 text-[13px] font-medium tracking-wide mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
-              Trusted across India since 2010
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.1] tracking-tight">
-              Your Trusted Partner for{" "}
-              <span className="text-brand-300">
-                Oils, Automobiles &amp; Finance
-              </span>
-            </h1>
-            <p className="mt-6 text-[17px] text-brand-200/80 leading-relaxed max-w-lg">
-              Blue Streaks India delivers excellence across lubricants,
-              automobile services, legal consultancy, transport &amp; cargo, and
-              financial solutions nationwide.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3.5">
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-700 text-[14px] font-semibold rounded-lg hover:bg-brand-50 transition-colors shadow-lg shadow-black/10"
-              >
-                Explore Services
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Decorative grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
 
-      {/* ── Services ── */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="max-w-xl mb-14">
-            <p className="text-brand-600 text-[13px] font-semibold uppercase tracking-wider mb-2">
-              What we do
-            </p>
-            <h2 className="text-3xl sm:text-[2rem] font-bold text-slate-900 tracking-tight">
-              Our Services
-            </h2>
-            <p className="mt-3 text-slate-500 text-[15px] leading-relaxed">
-              A diverse range of services to meet your business and personal
-              needs across multiple industries.
-            </p>
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
+          {/* Badge */}
+          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/30 bg-gold-400/10 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span className="text-[12px] font-semibold text-gold-300 uppercase tracking-widest">
+              Bluestreak India Private Limited
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {serviceCategories.map((svc) => (
-              <Link
-                key={svc.name}
-                href={svc.href}
-                className="group relative rounded-xl p-6 border border-slate-100 bg-white hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100 transition-all duration-200"
-              >
-                <div
-                  className={`w-10 h-10 ${svc.accent} rounded-lg flex items-center justify-center mb-4`}
-                >
-                  <svc.icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-[15px] font-semibold text-slate-900 mb-1.5">
-                  {svc.name}
-                </h3>
-                <p className="text-[13.5px] text-slate-500 leading-relaxed">
-                  {svc.desc}
-                </p>
-                <ChevronRight className="absolute top-6 right-5 w-4 h-4 text-slate-300 group-hover:text-brand-500 group-hover:translate-x-0.5 transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+          <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight uppercase">
+            Bluestreak
+            <span className="block gold-shimmer">Group</span>
+          </h1>
 
-      {/* ── Cars & Bikes for Sale ── */}
-      <section className="py-24 bg-slate-50/70">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
-            <div className="max-w-xl">
-              <p className="text-brand-600 text-[13px] font-semibold uppercase tracking-wider mb-2">
-                Buy &amp; sell
-              </p>
-              <h2 className="text-3xl sm:text-[2rem] font-bold text-slate-900 tracking-tight">
-                Cars &amp; Bikes for Sale
-              </h2>
-              <p className="mt-3 text-slate-500 text-[15px] leading-relaxed">
-                Browse our curated selection of quality-checked cars and bikes
-                available across major Indian cities.
-              </p>
-            </div>
-            <Link
-              href="/services#automobiles"
-              className="inline-flex items-center gap-1.5 text-brand-600 text-[13.5px] font-semibold hover:text-brand-700 transition-colors shrink-0"
+          {/* Gold divider */}
+          <div className="animate-fade-in-up-delay-2 mx-auto mt-6 mb-6 flex items-center justify-center gap-3">
+            <span className="w-12 h-px bg-linear-to-r from-transparent to-gold-400/60" />
+            <span className="w-2 h-2 rounded-full bg-gold-400/60" />
+            <span className="w-12 h-px bg-linear-to-l from-transparent to-gold-400/60" />
+          </div>
+
+          <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl text-white/90 font-light italic tracking-wide">
+            Building Businesses. Creating Global Value.
+          </p>
+
+          <p className="animate-fade-in-up-delay-3 mt-6 text-[15px] text-brand-200/70 leading-relaxed max-w-2xl mx-auto">
+            A diversified business group operating across automobiles,
+            lubricants, logistics, finance, legal advisory and fiduciary
+            services.
+          </p>
+
+          <div className="animate-fade-in-up-delay-3 mt-10 flex flex-wrap justify-center gap-4">
+            <a
+              href="#divisions"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-brand-800 text-[14px] font-semibold rounded-lg hover:bg-gold-50 transition-all duration-300 shadow-xl shadow-black/15"
             >
-              View all vehicles
-              <ArrowRight className="w-4 h-4" />
+              Explore Our Businesses
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+            >
+              Contact Us
             </Link>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {vehiclesForSale.map((v) => (
-              <div
-                key={v.name}
-                className="group bg-white rounded-xl border border-slate-100 overflow-hidden hover:border-slate-200 hover:shadow-lg hover:shadow-slate-100 transition-all duration-200"
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent" />
+      </section>
+
+      {/* ── Our Business Divisions ── */}
+      <section id="divisions" className="py-28">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
+              What We Do
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              Our Business Divisions
+            </h2>
+            <div className="mx-auto mt-4 flex items-center justify-center gap-2">
+              <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+              <span className="w-2 h-2 rounded-full bg-gold-400" />
+              <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+            </div>
+            <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
+              A diversified portfolio of businesses delivering excellence across
+              multiple industries.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {divisions.map((div) => (
+              <Link
+                key={div.name}
+                href={div.href}
+                className="premium-card group bg-white rounded-2xl border border-slate-200/80 overflow-hidden hover:shadow-2xl hover:shadow-brand-900/8 hover:-translate-y-1 transition-all duration-400"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-52 overflow-hidden">
                   <Image
-                    src={v.image}
-                    alt={v.name}
+                    src={div.image}
+                    alt={div.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
-                  {v.tag && (
-                    <span className="absolute top-3 left-3 px-2.5 py-1 bg-brand-600 text-white text-[11px] font-semibold rounded-md shadow-sm">
-                      {v.tag}
-                    </span>
-                  )}
-                  <span
-                    className={`absolute top-3 right-3 px-2 py-0.5 text-[11px] font-semibold rounded-md ${
-                      v.type === "Bike"
-                        ? "bg-amber-50 text-amber-700"
-                        : "bg-sky-50 text-sky-700"
-                    }`}
-                  >
-                    {v.type === "Bike" ? (
-                      <span className="inline-flex items-center gap-1">
-                        <Bike className="w-3 h-3" /> Bike
+                  <div className="absolute inset-0 bg-linear-to-t from-brand-950/80 via-brand-950/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <div className="flex items-center gap-2.5 mb-1.5">
+                      <div className="w-8 h-8 bg-white/15 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20">
+                        <div.icon className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
+                        {div.subtitle}
                       </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1">
-                        <Car className="w-3 h-3" /> Car
-                      </span>
-                    )}
-                  </span>
+                    </div>
+                    <h3 className="text-[18px] font-bold text-white leading-snug">
+                      {div.name}
+                    </h3>
+                  </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-[15px] font-semibold text-slate-900 mb-1">
-                    {v.name}
-                  </h3>
-                  <p className="text-[12px] text-slate-400 mb-2.5">{v.spec}</p>
-                  <div className="flex items-center gap-3 text-[13px] text-slate-500 mb-3">
-                    <span className="inline-flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" /> {v.year}
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5" /> {v.location}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[16px] font-bold text-brand-700 inline-flex items-center gap-0.5">
-                      <IndianRupee className="w-4 h-4" />
-                      {v.price.replace("₹", "")}
-                    </span>
-                    <Link
-                      href="/contact"
-                      className="text-[12.5px] font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1 transition-colors"
-                    >
-                      Enquire <ChevronRight className="w-3.5 h-3.5" />
-                    </Link>
+                  <ul className="space-y-2.5">
+                    {div.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-center gap-3 text-[13.5px] text-slate-600"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  {div.footnote && (
+                    <p className="mt-4 pt-3 border-t border-slate-100 text-[12px] text-slate-400 italic leading-relaxed">
+                      {div.footnote}
+                    </p>
+                  )}
+                  <div className="mt-4 flex items-center gap-1.5 text-[13px] font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
+                    Learn More
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Products ── */}
-      <section className="py-24">
+      {/* ── Why Choose Bluestreak Group ── */}
+      <section className="py-28 bg-slate-50 border-y border-slate-100">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="max-w-xl mb-14">
-            <p className="text-brand-600 text-[13px] font-semibold uppercase tracking-wider mb-2">
-              Product range
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
+              Our Promise
             </p>
-            <h2 className="text-3xl sm:text-[2rem] font-bold text-slate-900 tracking-tight">
-              Our Products
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              Why Choose Bluestreak Group?
             </h2>
-            <p className="mt-3 text-slate-500 text-[15px] leading-relaxed">
-              Manufacturing oil for all car and heavy transport needs &mdash;
-              semi-synthetic, fully synthetic and more.
-            </p>
+            <div className="mx-auto mt-4 flex items-center justify-center gap-2">
+              <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+              <span className="w-2 h-2 rounded-full bg-gold-400" />
+              <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            {products.map((prod) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChoose.map((item) => (
               <div
-                key={prod.name}
-                className="flex flex-col items-center text-center px-4 py-6 bg-white rounded-xl border border-slate-100"
+                key={item.name}
+                className="group bg-white rounded-2xl border border-slate-200/80 p-7 text-center hover:shadow-xl hover:shadow-slate-200/50 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-11 h-11 bg-brand-50 text-brand-600 rounded-lg flex items-center justify-center mb-3">
-                  <prod.icon className="w-5 h-5" />
+                <div
+                  className={`w-16 h-16 bg-linear-to-br ${item.accent} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300`}
+                >
+                  <item.icon className="w-7 h-7 text-white" />
                 </div>
-                <span className="text-[13px] font-medium text-slate-700">
-                  {prod.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Features strip ── */}
-      <section className="py-20 border-y border-slate-100">
-        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            {features.map((feat) => (
-              <div key={feat.name} className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-brand-600 rounded-lg flex items-center justify-center shrink-0 text-white shadow-sm shadow-brand-600/25">
-                  <feat.icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-[14px] font-semibold text-slate-900 mb-1">
-                    {feat.name}
-                  </h3>
-                  <p className="text-[13px] text-slate-500 leading-relaxed">
-                    {feat.desc}
-                  </p>
-                </div>
+                <h3 className="text-[16px] font-bold text-slate-900 mb-2.5">
+                  {item.name}
+                </h3>
+                <p className="text-[13px] text-slate-500 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -414,25 +318,44 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-24 bg-brand-950">
-        <div className="max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-[2rem] font-bold text-white tracking-tight">
-            Ready to Partner with Us?
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-brand-950 via-brand-900 to-brand-950" />
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        <div className="relative max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-gold-400/10 mb-6">
+            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+            <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
+              Partner With Us
+            </span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            Ready to Build Something
+            <span className="gold-shimmer"> Great?</span>
           </h2>
-          <p className="mt-4 text-brand-200/70 text-[15px] leading-relaxed">
+          <p className="mt-5 text-brand-200/60 text-[15px] leading-relaxed">
             Whether you need automobile services, legal counsel, lubricants, or
-            logistics &mdash; we&apos;ve got you covered.
+            logistics &mdash; Bluestreak Group has you covered.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3.5">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               href="/dealership"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-brand-700 text-[14px] font-semibold rounded-lg hover:bg-brand-50 transition-colors"
+              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-brand-800 text-[14px] font-semibold rounded-lg hover:bg-gold-50 transition-all duration-300 shadow-lg shadow-black/15"
             >
               Become a Dealer
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 hover:border-white/40 transition-all duration-300"
             >
               Get in Touch
             </Link>

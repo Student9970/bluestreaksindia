@@ -6,19 +6,15 @@ import {
   Menu,
   X,
   ChevronDown,
-  Car,
   Scale,
+  ShieldCheck,
   Droplets,
-  Truck,
-  Banknote,
 } from "lucide-react";
 
 const serviceLinks = [
-  { name: "Automobiles", href: "/services#automobiles", icon: Car },
-  { name: "Legal Services", href: "/services#legal", icon: Scale },
-  { name: "Lubricants & Oils", href: "/services#lubricants", icon: Droplets },
-  { name: "Transport & Cargo", href: "/services#transport", icon: Truck },
-  { name: "Loans", href: "/loans", icon: Banknote },
+  { name: "Bluestreak Legal", href: "/services#legal", icon: Scale },
+  { name: "Bluestreak Trustees", href: "/services#trustees", icon: ShieldCheck },
+  { name: "Bluestreak Lubricants", href: "/services#lubricants", icon: Droplets },
 ];
 
 const navLinks = [
@@ -26,7 +22,7 @@ const navLinks = [
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "Products", href: "/products" },
   { name: "Dealership", href: "/dealership" },
-  { name: "Finance", href: "/loans" },
+  { name: "Sell a Car", href: "/loans" },
   { name: "About", href: "/about" },
 ];
 
@@ -35,17 +31,22 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
-    <nav className="bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-50">
+    <nav className="bg-white/80 backdrop-blur-xl border-b border-slate-100/80 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[68px]">
+        <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-brand-600 rounded-lg flex items-center justify-center shadow-sm shadow-brand-600/25">
-              <span className="text-white font-extrabold text-sm tracking-tight">BS</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-9 h-9 bg-brand-950 rounded-xl flex items-center justify-center shadow-md shadow-brand-950/20 overflow-hidden">
+              <span className="relative text-white font-extrabold text-sm tracking-tight">
+                BG
+              </span>
             </div>
-            <div className="hidden sm:block">
-              <span className="text-[15px] font-bold text-slate-900 tracking-tight">
-                Blue Streaks India
+            <div className="hidden sm:flex flex-col">
+              <span className="text-[15px] font-bold text-slate-900 tracking-tight leading-tight">
+                Bluestreak Group
+              </span>
+              <span className="text-[10px] font-medium text-slate-400 tracking-wider uppercase leading-tight">
+                India Pvt. Ltd.
               </span>
             </div>
           </Link>
@@ -68,15 +69,15 @@ export default function Navbar() {
                     <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                   </Link>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 pt-1.5">
-                      <div className="w-52 bg-white rounded-xl shadow-lg shadow-slate-200/60 border border-slate-100 py-1.5">
+                    <div className="absolute top-full left-0 pt-2">
+                      <div className="w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-xl shadow-slate-200/50 border border-slate-100 py-2">
                         {serviceLinks.map((sLink) => (
                           <Link
                             key={sLink.name}
                             href={sLink.href}
-                            className="flex items-center gap-2.5 px-3.5 py-2 mx-1.5 text-[13px] text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors duration-150"
+                            className="flex items-center gap-2.5 px-4 py-2.5 mx-1.5 text-[13px] text-slate-600 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors duration-150"
                           >
-                            <sLink.icon className="w-3.5 h-3.5 text-slate-400" />
+                            <sLink.icon className="w-4 h-4 text-slate-400" />
                             {sLink.name}
                           </Link>
                         ))}
@@ -96,7 +97,7 @@ export default function Navbar() {
             )}
             <Link
               href="/contact"
-              className="ml-3 px-4.5 py-2 bg-brand-600 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-700 transition-colors duration-150 shadow-sm shadow-brand-600/25"
+              className="ml-4 px-5 py-2.5 bg-brand-950 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-900 transition-colors duration-200 shadow-md shadow-brand-950/20"
             >
               Get in Touch
             </Link>
@@ -119,7 +120,7 @@ export default function Navbar() {
 
       {/* Mobile */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-slate-100 bg-white">
+        <div className="lg:hidden border-t border-slate-100 bg-white/95 backdrop-blur-xl">
           <div className="px-5 py-4 space-y-0.5">
             {navLinks.map((link) => (
               <div key={link.name}>
@@ -152,7 +153,7 @@ export default function Navbar() {
             <div className="pt-3">
               <Link
                 href="/contact"
-                className="block text-center py-2.5 bg-brand-600 text-white text-[13.5px] font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm shadow-brand-600/25"
+                className="block text-center py-2.5 bg-brand-950 text-white text-[13.5px] font-semibold rounded-lg hover:bg-brand-900 transition-colors shadow-md shadow-brand-950/20"
                 onClick={() => setMobileOpen(false)}
               >
                 Get in Touch

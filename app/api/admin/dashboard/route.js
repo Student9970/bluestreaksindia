@@ -4,7 +4,7 @@ import { getSession } from "@/utils/auth";
 import { getPersonaAccess } from "@/utils/personas";
 import Product from "@/models/Product";
 import Dealership from "@/models/Dealership";
-import Finance from "@/models/Finance";
+import SellCarEnquiry from "@/models/SellCarEnquiry";
 import Contact from "@/models/Contact";
 import User from "@/models/User";
 
@@ -26,7 +26,7 @@ export async function GET() {
     stats.dealerships = await Dealership.countDocuments();
   }
   if (access.includes("finance")) {
-    stats.finances = await Finance.countDocuments();
+    stats.finances = await SellCarEnquiry.countDocuments();
   }
   if (access.includes("contact")) {
     stats.contacts = await Contact.countDocuments();

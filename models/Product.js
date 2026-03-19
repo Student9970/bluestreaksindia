@@ -9,6 +9,7 @@ const ProductSchema = new mongoose.Schema(
     desc: { type: String, default: "" },
     image: { type: String, default: "" },
     badge: { type: String, default: "" },
+    price: { type: Number, default: null },
   },
   { timestamps: true }
 );

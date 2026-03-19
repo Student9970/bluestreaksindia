@@ -9,7 +9,7 @@ const subjectLabels = {
   legal: "Legal Services",
   lubricants: "Lubricants & Oils",
   transport: "Transport & Cargo",
-  loans: "Loans & Finance",
+  "sell-car": "Sell a Car",
   dealership: "Dealership Partnership",
   careers: "Careers",
 };

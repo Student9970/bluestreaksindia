@@ -21,7 +21,7 @@ const navItems = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard, key: "dashboard" },
   { name: "Products", href: "/admin/products", icon: Package, key: "products" },
   { name: "Dealership", href: "/admin/dealership", icon: Handshake, key: "dealership" },
-  { name: "Finance", href: "/admin/finance", icon: Banknote, key: "finance" },
+  { name: "Sell Car", href: "/admin/finance", icon: Banknote, key: "finance" },
   { name: "Contact Us", href: "/admin/contact", icon: Mail, key: "contact" },
   { name: "Users", href: "/admin/users", icon: Users, key: "users" },
 ];

@@ -11,13 +11,23 @@
   --color-brand-700: #1233e1;
   --color-brand-800: #152ab6;
   --color-brand-900: #17298f;
-  --color-brand-950: #111a57;
+  --color-brand-950: #0c1340;
+
+  --color-gold-50: #fefce8;
+  --color-gold-100: #fef9c3;
+  --color-gold-200: #fef08a;
+  --color-gold-300: #fde047;
+  --color-gold-400: #facc15;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a16207;
+  --color-gold-700: #854d0e;
 
   --color-surface: #ffffff;
   --color-surface-raised: #f8fafc;
   --color-surface-sunken: #f1f5f9;
 
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 html {
@@ -43,4 +53,81 @@ textarea {
 ::selection {
   background-color: var(--color-brand-100);
   color: var(--color-brand-900);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out both;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fade-in-up 0.7s ease-out 0.15s both;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fade-in-up 0.7s ease-out 0.3s both;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fade-in-up 0.7s ease-out 0.45s both;
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--color-gold-400) 0%,
+    var(--color-gold-200) 40%,
+    var(--color-gold-400) 60%,
+    var(--color-gold-500) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.premium-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-brand-600),
+    var(--color-gold-400),
+    var(--color-brand-600)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.premium-card:hover::before {
+  opacity: 1;
 }

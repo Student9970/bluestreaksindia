@@ -25,7 +25,7 @@ const statCards = [
   },
   {
     key: "finances",
-    label: "Finance Applications",
+    label: "Sell Car Enquiries",
     icon: Banknote,
     color: "bg-amber-50 text-amber-600 border-amber-100",
   },

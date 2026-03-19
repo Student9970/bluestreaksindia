@@ -20,6 +20,7 @@ const emptyForm = {
   desc: "",
   image: "",
   badge: "",
+  price: "",
 };
 
 export default function AdminProducts() {
@@ -54,6 +55,7 @@ export default function AdminProducts() {
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
+      price: formData.price === "" || formData.price === null ? null : Number(formData.price),
     };
 
     const url = editing
@@ -83,6 +85,7 @@ export default function AdminProducts() {
       desc: product.desc || "",
       image: product.image || "",
       badge: product.badge || "",
+      price: product.price != null ? String(product.price) : "",
     });
     setEditing(product._id);
     setShowForm(true);
@@ -152,6 +155,9 @@ export default function AdminProducts() {
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
                   Category
                 </th>
+                <th className="text-right px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
+                  Price
+                </th>
                 <th className="text-left px-5 py-3 text-[12px] font-semibold text-slate-500 uppercase tracking-wider">
                   Tags
                 </th>
@@ -166,7 +172,7 @@ export default function AdminProducts() {
             <tbody className="divide-y divide-slate-100">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="px-5 py-12 text-center">
+                  <td colSpan={6} className="px-5 py-12 text-center">
                     <div className="flex justify-center">
                       <div className="w-6 h-6 border-2 border-brand-600 border-t-transparent rounded-full animate-spin" />
                     </div>
@@ -175,7 +181,7 @@ export default function AdminProducts() {
               ) : filtered.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={5}
+                    colSpan={6}
                     className="px-5 py-12 text-center text-[14px] text-slate-400"
                   >
                     No products found
@@ -199,6 +205,15 @@ export default function AdminProducts() {
                       <span className="inline-block px-2.5 py-1 bg-slate-100 text-slate-600 text-[12px] font-medium rounded-md">
                         {product.category}
                       </span>
+                    </td>
+                    <td className="px-5 py-3.5 text-right">
+                      {product.price != null ? (
+                        <span className="text-[13px] font-semibold text-slate-800">
+                          &#8377;{Number(product.price).toLocaleString("en-IN")}
+                        </span>
+                      ) : (
+                        <span className="text-[12px] text-slate-300">&mdash;</span>
+                      )}
                     </td>
                     <td className="px-5 py-3.5">
                       <div className="flex flex-wrap gap-1">
@@ -293,6 +308,22 @@ export default function AdminProducts() {
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[13px] font-medium text-slate-700 mb-1.5">
+                    Price (&#8377;)
+                  </label>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    value={formData.price}
+                    onChange={(e) =>
+                      setFormData({ ...formData, price: e.target.value })
+                    }
+                    placeholder="e.g. 499"
+                    className="w-full h-10 px-3.5 border border-slate-200 rounded-lg text-[13px] text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                  />
+                </div>
                 <div>
                   <label className="block text-[13px] font-medium text-slate-700 mb-1.5">
                     Category *
