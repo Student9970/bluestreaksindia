@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   ArrowRight,
   Award,
@@ -21,8 +22,7 @@ const divisions = [
     name: "Bluestreak Automobiles",
     subtitle: "Sales | Service | Spares",
     icon: Car,
-    image:
-      "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&h=400&fit=crop",
+    image: SITE_IMG.showroom(600, 400),
     href: "/services#automobiles",
     points: [
       "New & Used Vehicles",
@@ -34,8 +34,7 @@ const divisions = [
     name: "Bluestreak Lubricants",
     subtitle: "Automotive Lubricant Solutions",
     icon: Droplets,
-    image:
-      "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&h=400&fit=crop",
+    image: SITE_IMG.lubricantStudio(600, 400),
     href: "/products",
     points: ["Engine Oil", "Radiator Coolants", "Gear Oil"],
     footnote:
@@ -45,8 +44,7 @@ const divisions = [
     name: "Bluestreak Transports & Logistics",
     subtitle: "Cargo | Shipping | Hospitality",
     icon: Truck,
-    image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop",
+    image: SITE_IMG.portLogistics(600, 400),
     href: "/services#transport",
     points: [
       "Freight & Cargo",
@@ -58,8 +56,7 @@ const divisions = [
     name: "Sell a Car",
     subtitle: "Best Price | Quick Sale | Hassle-Free",
     icon: Banknote,
-    image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&h=400&fit=crop",
+    image: SITE_IMG.luxuryVehicle(600, 400),
     href: "/loans",
     points: [
       "Free Valuation",
@@ -72,8 +69,7 @@ const divisions = [
     name: "Bluestreak Legal",
     subtitle: "Civil | Criminal | Corporate Law",
     icon: Scale,
-    image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop",
+    image: SITE_IMG.legalCounsel(600, 400),
     href: "/services#legal",
     points: [
       "Estate & Succession Planning",
@@ -85,8 +81,7 @@ const divisions = [
     name: "Bluestreak Trustees",
     subtitle: "Fiduciary Services & Wealth Planning",
     icon: Landmark,
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop",
+    image: SITE_IMG.financeMarkets(600, 400),
     href: "/services#legal",
     points: [
       "Private, Business & Charitable Trusts",
@@ -129,8 +124,8 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden min-h-[580px] md:min-h-[660px]">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&h=700&fit=crop"
-          alt="Modern city skyline"
+          src={SITE_IMG.heroOffice(1600, 700)}
+          alt="Premium corporate workspace"
           fill
           priority
           className="object-cover object-center scale-105"

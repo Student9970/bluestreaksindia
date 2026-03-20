@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { LOCAL } from "@/lib/site-images";
 import {
   Menu,
   X,
@@ -36,12 +38,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-9 h-9 bg-brand-950 rounded-xl flex items-center justify-center shadow-md shadow-brand-950/20 overflow-hidden">
-              <span className="relative text-white font-extrabold text-sm tracking-tight">
-                BG
-              </span>
-            </div>
-            <div className="hidden sm:flex flex-col">
+            <Image
+              src={LOCAL.logo}
+              alt="Bluestreak"
+              width={176}
+              height={48}
+              className="h-8 sm:h-9 w-auto max-w-[160px] sm:max-w-[200px] object-contain object-left"
+              priority
+            />
+            <div className="hidden sm:flex flex-col border-l border-slate-200 pl-3">
               <span className="text-[15px] font-bold text-slate-900 tracking-tight leading-tight">
                 Bluestreak Group
               </span>

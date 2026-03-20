@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   Car,
   ShieldCheck,
@@ -17,19 +18,19 @@ const whySellWithUs = [
     icon: Banknote,
     name: "Best Price",
     desc: "We offer competitive valuations so you get the true market value for your car.",
-    image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&h=280&fit=crop",
+    image: SITE_IMG.financeMarkets(400, 280),
   },
   {
     icon: Clock,
     name: "Quick Process",
     desc: "From inspection to payment, we complete the sale in the shortest possible time.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=280&fit=crop",
+    image: SITE_IMG.signingAgreement(400, 280),
   },
   {
     icon: ShieldCheck,
     name: "Hassle-Free",
     desc: "No haggling, no middlemen. Transparent paperwork and a smooth handover.",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop",
+    image: SITE_IMG.executiveMeeting(400, 280),
   },
 ];
 
@@ -95,8 +96,8 @@ export default function SellCarPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1400&h=500&fit=crop"
-          alt="Sell your car"
+          src={SITE_IMG.luxuryVehicle(1400, 500)}
+          alt="Premium pre-owned vehicle"
           fill
           priority
           className="object-cover object-center"
@@ -186,8 +187,8 @@ export default function SellCarPage() {
             <div className="lg:col-span-2 hidden lg:block space-y-4">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=500&h=400&fit=crop"
-                  alt="Sell your car"
+                  src={SITE_IMG.showroom(500, 400)}
+                  alt="Vehicle appraisal"
                   fill
                   className="object-cover"
                 />

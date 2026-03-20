@@ -417,8 +417,8 @@ export default function AdminProducts() {
                   {saving
                     ? "Saving..."
                     : editing
-                    ? "Update Product"
-                    : "Add Product"}
+                      ? "Update Product"
+                      : "Add Product"}
                 </button>
               </div>
             </form>

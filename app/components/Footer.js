@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { LOCAL } from "@/lib/site-images";
 import {
   Phone,
   Mail,
@@ -35,11 +37,15 @@ export default function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           {/* Brand */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center border border-white/10">
-                <span className="text-white font-extrabold text-sm tracking-tight">
-                  BG
-                </span>
+            <div className="flex flex-col gap-4 mb-5">
+              <div className="bg-white rounded-lg px-3 py-2.5 w-fit shadow-sm">
+                <Image
+                  src={LOCAL.logo}
+                  alt="Bluestreak"
+                  width={168}
+                  height={44}
+                  className="h-7 sm:h-8 w-auto max-w-[200px] object-contain object-left"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-[15px] font-bold text-white tracking-tight leading-tight">

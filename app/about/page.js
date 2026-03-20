@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   Target,
   Eye,
@@ -27,35 +28,35 @@ const verticals = [
     desc: "Car sales, service, vintage cars, modifications & spare parts",
     icon: Car,
     gradient: "from-sky-500 to-blue-600",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=300&fit=crop",
+    image: SITE_IMG.showroom(400, 300),
   },
   {
     name: "Legal Services",
     desc: "Civil, criminal, corporate law, IP protection & estate planning",
     icon: Scale,
     gradient: "from-violet-500 to-purple-600",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop",
+    image: SITE_IMG.legalCounsel(400, 300),
   },
   {
     name: "Lubricants & Oils",
     desc: "Premium engine oils, gear oils, coolants & industrial lubricants",
     icon: Droplets,
     gradient: "from-amber-500 to-orange-600",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400&h=300&fit=crop",
+    image: SITE_IMG.lubricantStudio(400, 300),
   },
   {
     name: "Transport & Cargo",
     desc: "Pan-India logistics via air, water & road with fleet rentals",
     icon: Truck,
     gradient: "from-emerald-500 to-teal-600",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=300&fit=crop",
+    image: SITE_IMG.portLogistics(400, 300),
   },
   {
     name: "Sell a Car",
     desc: "Sell your car with best price, quick process and hassle-free paperwork",
     icon: Banknote,
     gradient: "from-rose-500 to-pink-600",
-    image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=400&h=300&fit=crop",
+    image: SITE_IMG.luxuryVehicle(400, 300),
   },
 ];
 
@@ -65,8 +66,8 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&h=500&fit=crop"
-          alt="Modern office building"
+          src={SITE_IMG.heroSkyline(1400, 500)}
+          alt="Corporate business district"
           fill
           priority
           className="object-cover object-center"
@@ -136,16 +137,16 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative h-80 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=700&h=500&fit=crop"
-                  alt="Bluestreak Group headquarters"
+                  src={SITE_IMG.brandFacility(700, 500)}
+                  alt="Bluestreak manufacturing and storage facility"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="absolute -bottom-5 -left-5 w-40 h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white hidden md:block">
                 <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=300&h=300&fit=crop"
-                  alt="Team collaboration"
+                  src={SITE_IMG.brandOffice(300, 300)}
+                  alt="Bluestreak India Auto — showroom and office"
                   fill
                   className="object-cover"
                 />
@@ -201,8 +202,8 @@ export default function AboutPage() {
             <div className="premium-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&h=350&fit=crop"
-                  alt="Team brainstorming session"
+                  src={SITE_IMG.teamCollaboration(700, 350)}
+                  alt="Professional team session"
                   fill
                   className="object-cover"
                 />
@@ -228,7 +229,7 @@ export default function AboutPage() {
             <div className="premium-card bg-white rounded-2xl border border-slate-200/80 overflow-hidden hover:shadow-xl hover:shadow-slate-200/40 transition-all duration-300">
               <div className="relative h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&h=350&fit=crop"
+                  src={SITE_IMG.strategyPlanning(700, 350)}
                   alt="Strategic planning and growth"
                   fill
                   className="object-cover"
@@ -259,8 +260,8 @@ export default function AboutPage() {
       {/* Full-width image divider */}
       <section className="relative h-64 md:h-80">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=500&fit=crop"
-          alt="Modern business district skyline"
+          src={SITE_IMG.heroCityAerial(1400, 500)}
+          alt="Global business presence"
           fill
           className="object-cover"
         />
@@ -327,8 +328,8 @@ export default function AboutPage() {
       {/* Our Presence */}
       <section className="relative py-28 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1400&h=600&fit=crop"
-          alt="Indian city skyline"
+          src={SITE_IMG.heroSkyline(1400, 600)}
+          alt="Urban excellence"
           fill
           className="object-cover"
         />

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   Handshake,
   TrendingUp,
@@ -120,8 +121,8 @@ export default function DealerPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1400&h=500&fit=crop"
-          alt="Business partnership handshake"
+          src={SITE_IMG.heroHandshake(1400, 500)}
+          alt="Strategic partnership"
           fill
           priority
           className="object-cover object-center"
@@ -180,8 +181,8 @@ export default function DealerPage() {
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=700&h=450&fit=crop"
-                alt="Business partnership meeting"
+                src={SITE_IMG.heroBoardroom(700, 450)}
+                alt="Partnership meeting"
                 fill
                 className="object-cover"
               />
@@ -214,8 +215,8 @@ export default function DealerPage() {
       {/* Image banner */}
       <section className="relative h-56 md:h-72">
         <Image
-          src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&h=400&fit=crop"
-          alt="Dealership showroom"
+          src={SITE_IMG.showroom(1400, 400)}
+          alt="Premium dealership environment"
           fill
           className="object-cover"
         />
@@ -279,8 +280,8 @@ export default function DealerPage() {
             <div className="lg:col-span-2">
               <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src="https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=600&h=400&fit=crop"
-                  alt="Successful business partnership"
+                  src={SITE_IMG.professionalHandshake(600, 400)}
+                  alt="Trusted partnership"
                   fill
                   className="object-cover"
                 />

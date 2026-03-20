@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { SITE_IMG, LUBRICANT_GALLERY } from "@/lib/site-images";
 import { Package, Sparkles } from "lucide-react";
 
 const categories = [
@@ -33,18 +34,18 @@ export default function ProductsPage() {
     activeFilter === "All Products"
       ? products
       : products.filter(
-          (p) =>
-            p.category === activeFilter ||
-            (p.tags || []).includes(activeFilter)
-        );
+        (p) =>
+          p.category === activeFilter ||
+          (p.tags || []).includes(activeFilter)
+      );
 
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1400&h=500&fit=crop"
-          alt="Industrial manufacturing"
+          src={SITE_IMG.lubricantStudio(1400, 500)}
+          alt="Premium lubricants and industrial fluids"
           fill
           priority
           className="object-cover object-center"
@@ -76,6 +77,39 @@ export default function ProductsPage() {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
+      {/* Brand photography — facilities & product line */}
+      <section className="py-20 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
+              Authentic Bluestreak
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Facilities &amp; product photography
+            </h2>
+            <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
+              Real imagery from our plant, showroom, and lubricant range.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {LUBRICANT_GALLERY.map((src, i) => (
+              <div
+                key={src}
+                className="relative aspect-square rounded-xl overflow-hidden bg-slate-200 shadow-sm ring-1 ring-slate-200/80 group"
+              >
+                <Image
+                  src={src}
+                  alt={`Bluestreak — gallery image ${i + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Filter pills + Product grid */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -84,11 +118,10 @@ export default function ProductsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${
-                  activeFilter === cat
+                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${activeFilter === cat
                     ? "bg-brand-950 text-white border-brand-950 shadow-md shadow-brand-950/20"
                     : "bg-white text-slate-600 border-slate-200 hover:border-brand-300 hover:text-brand-700 hover:shadow-sm"
-                }`}
+                  }`}
               >
                 {cat}
               </button>

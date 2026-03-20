@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   Scale,
   Droplets,
@@ -26,7 +27,7 @@ const sections = [
     id: "legal",
     title: "Bluestreak Legal",
     gradient: "from-violet-500 to-purple-600",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop",
+    image: SITE_IMG.legalCounsel(800, 500),
     imageAlt: "Legal consultation office",
     description:
       "Expert legal consultancy spanning civil, criminal, and corporate law, with dedicated IP protection, estate planning, asset protection, and generational wealth structuring.",
@@ -35,37 +36,37 @@ const sections = [
         icon: Gavel,
         name: "Civil & Criminal",
         desc: "Full-spectrum civil and criminal legal representation and litigation support",
-        image: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=400&h=280&fit=crop",
+        image: SITE_IMG.civilJustice(400, 280),
       },
       {
         icon: Building2,
         name: "Corporate Law",
         desc: "Comprehensive corporate legal advisory, compliance, and governance services",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=280&fit=crop",
+        image: SITE_IMG.heroSkyline(400, 280),
       },
       {
         icon: Landmark,
         name: "Estate & Succession Planning",
         desc: "Strategic estate planning and seamless succession advisory for families and businesses",
-        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=280&fit=crop",
+        image: SITE_IMG.estateKeys(400, 280),
       },
       {
         icon: ShieldCheck,
         name: "Asset Ring Fencing",
         desc: "Robust legal structures to protect and isolate your valuable assets from risks",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=280&fit=crop",
+        image: SITE_IMG.wealthAdvisory(400, 280),
       },
       {
         icon: Gem,
         name: "Structuring Generational Wealth",
         desc: "Tailored frameworks to preserve and grow wealth across multiple generations",
-        image: "https://images.unsplash.com/photo-1618044733300-9472054094ee?w=400&h=280&fit=crop",
+        image: SITE_IMG.wealthPreservation(400, 280),
       },
       {
         icon: Stamp,
         name: "Trademark & Patent",
         desc: "Intellectual property registration, enforcement, and strategic IP portfolio management",
-        image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=280&fit=crop",
+        image: SITE_IMG.ipInnovation(400, 280),
       },
     ],
   },
@@ -73,7 +74,7 @@ const sections = [
     id: "trustees",
     title: "Bluestreak Trustees",
     gradient: "from-emerald-500 to-teal-600",
-    image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&h=500&fit=crop",
+    image: SITE_IMG.financeMarkets(800, 500),
     imageAlt: "Professional fiduciary services",
     description:
       "Professional fiduciary services — acting as trustee and administrator for private, business, and charitable trusts, with cross-border advisory and taxation expertise.",
@@ -82,37 +83,37 @@ const sections = [
         icon: HandCoins,
         name: "Fiduciary Services",
         desc: "Professional management of assets held in trust with the highest standards of care and diligence",
-        image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=280&fit=crop",
+        image: SITE_IMG.signingAgreement(400, 280),
       },
       {
         icon: Users,
         name: "Private Trust",
         desc: "Acting as trustee and administrator for private family trusts to safeguard personal wealth",
-        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=280&fit=crop",
+        image: SITE_IMG.boardroomDiscussion(400, 280),
       },
       {
         icon: Building2,
         name: "Business Trust",
         desc: "Trustee services for business trusts ensuring governance, compliance, and asset protection",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=280&fit=crop",
+        image: SITE_IMG.fiduciaryTrust(400, 280),
       },
       {
         icon: Scale,
         name: "Charitable Trust",
         desc: "Administration and stewardship of charitable trusts aligned with philanthropic objectives",
-        image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=400&h=280&fit=crop",
+        image: SITE_IMG.charitableImpact(400, 280),
       },
       {
         icon: Globe,
         name: "Cross Border Advisory",
         desc: "Expert advisory on multi-jurisdictional trust structures and international asset management",
-        image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400&h=280&fit=crop",
+        image: SITE_IMG.globalNetwork(400, 280),
       },
       {
         icon: Receipt,
         name: "Taxation",
         desc: "Strategic tax planning and compliance for trusts across domestic and international jurisdictions",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=280&fit=crop",
+        image: SITE_IMG.wealthAdvisory(400, 280),
       },
     ],
   },
@@ -120,7 +121,7 @@ const sections = [
     id: "lubricants",
     title: "Bluestreak Lubricants",
     gradient: "from-amber-500 to-orange-600",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=500&fit=crop",
+    image: SITE_IMG.lubricantStudio(800, 500),
     imageAlt: "Industrial lubricant manufacturing",
     description:
       "Wide range of premium engine oils, radiator coolants, gear oils, and brake fluids — formulated to suit all automotive and heavy vehicle requirements.",
@@ -129,25 +130,25 @@ const sections = [
         icon: Droplets,
         name: "Engine Oil",
         desc: "Semi-synthetic and fully synthetic engine oils for cars, bikes, trucks, and heavy machinery",
-        image: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=400&h=280&fit=crop",
+        image: SITE_IMG.engineDetail(400, 280),
       },
       {
         icon: Snowflake,
         name: "Radiator Coolants",
         desc: "Antifreeze coolants available in Blue, Green, Pink, and Red variants for all vehicle types",
-        image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&h=280&fit=crop",
+        image: SITE_IMG.heroManufacturing(400, 280),
       },
       {
         icon: Settings,
         name: "Gear Oil",
         desc: "High-performance gear oils engineered for smooth transmission and long-lasting protection",
-        image: "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=400&h=280&fit=crop",
+        image: SITE_IMG.gearMechanism(400, 280),
       },
       {
         icon: CircleDot,
         name: "Brake Oil",
         desc: "DOT-certified brake fluids for reliable stopping power across all driving conditions",
-        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&h=280&fit=crop",
+        image: SITE_IMG.luxuryVehicle(400, 280),
       },
     ],
   },
@@ -159,8 +160,8 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1400&h=500&fit=crop"
-          alt="Professional services"
+          src={SITE_IMG.brandFacility(1400, 500)}
+          alt="Bluestreak manufacturing facility"
           fill
           priority
           className="object-cover object-center"
@@ -294,8 +295,8 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="relative py-28 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&h=600&fit=crop"
-          alt="Professional consultation"
+          src={SITE_IMG.strategyPlanning(1400, 600)}
+          alt="Executive consultation"
           fill
           className="object-cover"
         />

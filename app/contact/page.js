@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { SITE_IMG } from "@/lib/site-images";
 import {
   Phone,
   Mail,
@@ -80,8 +81,8 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1400&h=500&fit=crop"
-          alt="Contact and communication"
+          src={SITE_IMG.clientConsultation(1400, 500)}
+          alt="Client consultation"
           fill
           priority
           className="object-cover object-center"
@@ -147,8 +148,8 @@ export default function ContactPage() {
             <div className="order-2 lg:order-1 space-y-6">
               <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=700&h=400&fit=crop"
-                  alt="Modern office workspace"
+                  src={SITE_IMG.brandOffice(700, 400)}
+                  alt="Bluestreak India Auto office"
                   fill
                   className="object-cover"
                 />
@@ -187,16 +188,16 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-32 rounded-2xl overflow-hidden shadow-md">
                   <Image
-                    src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=300&fit=crop"
-                    alt="Team collaboration"
+                    src={SITE_IMG.diverseTeam(400, 300)}
+                    alt="Professional team"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="relative h-32 rounded-2xl overflow-hidden shadow-md">
                   <Image
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop"
-                    alt="Customer support"
+                    src={SITE_IMG.boardroomDiscussion(400, 300)}
+                    alt="Executive support"
                     fill
                     className="object-cover"
                   />
@@ -290,8 +291,8 @@ export default function ContactPage() {
       {/* Image divider */}
       <section className="relative h-56 md:h-64">
         <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=400&fit=crop"
-          alt="Business cityscape"
+          src={SITE_IMG.heroSkyline(1400, 400)}
+          alt="Business district"
           fill
           className="object-cover"
         />
