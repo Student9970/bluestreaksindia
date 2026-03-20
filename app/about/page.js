@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   Target,
@@ -11,7 +12,8 @@ import {
   Scale,
   Droplets,
   Truck,
-  Banknote,
+  CircleDollarSign,
+  Landmark,
   Sparkles,
 } from "lucide-react";
 
@@ -24,21 +26,14 @@ const stats = [
 
 const verticals = [
   {
-    name: "Automobiles",
+    name: "Bluestreak Automobiles",
     desc: "Car sales, service, vintage cars, modifications & spare parts",
     icon: Car,
     gradient: "from-sky-500 to-blue-600",
     image: SITE_IMG.showroom(400, 300),
   },
   {
-    name: "Legal Services",
-    desc: "Civil, criminal, corporate law, IP protection & estate planning",
-    icon: Scale,
-    gradient: "from-violet-500 to-purple-600",
-    image: SITE_IMG.legalCounsel(400, 300),
-  },
-  {
-    name: "Lubricants & Oils",
+    name: "Bluestreak Lubricants",
     desc: "Premium engine oils, gear oils, coolants & industrial lubricants",
     icon: Droplets,
     gradient: "from-amber-500 to-orange-600",
@@ -52,11 +47,25 @@ const verticals = [
     image: SITE_IMG.portLogistics(400, 300),
   },
   {
-    name: "Sell a Car",
-    desc: "Sell your car with best price, quick process and hassle-free paperwork",
-    icon: Banknote,
-    gradient: "from-rose-500 to-pink-600",
-    image: SITE_IMG.luxuryVehicle(400, 300),
+    name: "Bluestreak Finance",
+    desc: "Consultation, advisory, loans, and funding assistance for growth and capital needs",
+    icon: CircleDollarSign,
+    gradient: "from-cyan-600 to-blue-800",
+    image: SITE_IMG.strategyPlanning(400, 300),
+  },
+  {
+    name: "Bluestreak Legal",
+    desc: "Civil, criminal, corporate law, IP protection & estate planning",
+    icon: Scale,
+    gradient: "from-violet-500 to-purple-600",
+    image: SITE_IMG.legalCounsel(400, 300),
+  },
+  {
+    name: "Bluestreak Trustees",
+    desc: "Fiduciary services — private, business & charitable trusts, cross-border advisory & wealth planning",
+    icon: Landmark,
+    gradient: "from-green-600 to-emerald-900",
+    image: SITE_IMG.financeMarkets(400, 300),
   },
 ];
 
@@ -289,7 +298,7 @@ export default function AboutPage() {
               <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              A diversified portfolio spanning five key industries, each backed
+              A diversified portfolio spanning six key industries, each backed
               by expert teams and proven processes.
             </p>
           </div>
@@ -325,42 +334,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Presence */}
-      <section className="relative py-28 overflow-hidden">
-        <Image
-          src={SITE_IMG.heroSkyline(1400, 600)}
-          alt="Urban excellence"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-brand-950/85" />
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="relative max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-gold-400/10 mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
-              Our Presence
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-5">
+      <SplitCtaBanner
+        imageSrc={SITE_IMG.heroSkyline(1600, 900)}
+        imageAlt="Urban excellence"
+        badgeLabel="Our Presence"
+        title={
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Across India, Close to You
           </h2>
-          <p className="text-[15px] text-brand-200/60 leading-[1.85]">
+        }
+        body={
+          <p className="text-[15px] leading-[1.85] text-white/90">
             Bluestreak Group India Pvt. Ltd. operates from multiple offices
             across India, ensuring we are always close to our clients and
             partners. Our headquarters in Mumbai serves as the hub for all our
             operations, with regional offices enabling us to deliver prompt
             service across the country.
           </p>
-        </div>
-      </section>
+        }
+      />
     </>
   );
 }

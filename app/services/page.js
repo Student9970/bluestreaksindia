@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import SplitCtaBanner, { splitCtaBtnPrimary } from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   Scale,
@@ -293,45 +294,28 @@ export default function ServicesPage() {
       ))}
 
       {/* CTA */}
-      <section className="relative py-28 overflow-hidden">
-        <Image
-          src={SITE_IMG.strategyPlanning(1400, 600)}
-          alt="Executive consultation"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-brand-950/85" />
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div className="relative max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-gold-400/10 mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
-              Get In Touch
-            </span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+      <SplitCtaBanner
+        imageSrc={SITE_IMG.strategyPlanning(1600, 900)}
+        imageAlt="Executive consultation"
+        badgeLabel="Get In Touch"
+        title={
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Ready to Work with Us?
           </h2>
-          <p className="mt-4 text-brand-200/60 text-[15px] leading-relaxed">
+        }
+        body={
+          <p className="text-[15px] leading-relaxed text-white/90">
             Whether you need legal counsel, trust management, or premium
             lubricants &mdash; our team is ready to help. Reach out today.
           </p>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-2 mt-8 px-7 py-3.5 bg-white text-brand-800 text-[14px] font-semibold rounded-lg hover:bg-gold-50 transition-all duration-300 shadow-lg shadow-black/15"
-          >
+        }
+        actions={
+          <Link href="/contact" className={`group ${splitCtaBtnPrimary}`}>
             Contact Us
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
-        </div>
-      </section>
+        }
+      />
     </>
   );
 }

@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import SplitCtaBanner, {
+  splitCtaBtnPrimary,
+  splitCtaBtnSecondary,
+} from "./components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   ArrowRight,
@@ -10,8 +14,8 @@ import {
   Car,
   Droplets,
   Truck,
-  Banknote,
-  Scale,
+    CircleDollarSign,
+    Scale,
   Landmark,
   ChevronRight,
   Sparkles,
@@ -53,16 +57,16 @@ const divisions = [
     ],
   },
   {
-    name: "Sell a Car",
-    subtitle: "Best Price | Quick Sale | Hassle-Free",
-    icon: Banknote,
-    image: SITE_IMG.luxuryVehicle(600, 400),
-    href: "/loans",
+    name: "Bluestreak Finance",
+    subtitle: "Consultation | Advisory | Loans | Funding Assistance",
+    icon: CircleDollarSign,
+    image: SITE_IMG.strategyPlanning(600, 400),
+    href: "/contact",
     points: [
-      "Free Valuation",
-      "Same-Day Inspection",
-      "Transparent Paperwork",
-      "Quick Payment",
+      "Consultation",
+      "Advisory",
+      "Loans",
+      "Funding Assistance",
     ],
   },
   {
@@ -313,50 +317,38 @@ export default function Home() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="relative py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-linear-to-br from-brand-950 via-brand-900 to-brand-950" />
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="relative max-w-2xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/20 bg-gold-400/10 mb-6">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
-              Partner With Us
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+      <SplitCtaBanner
+        imageSrc={SITE_IMG.heroSkyline(1600, 900)}
+        imageAlt="Infrastructure and scale"
+        badgeLabel="Partner With Us"
+        title={
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Ready to Build Something
             <span className="gold-shimmer"> Great?</span>
           </h2>
-          <p className="mt-5 text-brand-200/60 text-[15px] leading-relaxed">
-            Whether you need automobile services, legal counsel, lubricants, or
-            logistics &mdash; Bluestreak Group has you covered.
+        }
+        body={
+          <p className="text-[15px] leading-relaxed text-white/90">
+            Whether you need automobile services, finance and advisory, legal
+            counsel, lubricants, or logistics &mdash; Bluestreak Group has you
+            covered.
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+        }
+        actions={
+          <>
             <Link
               href="/dealership"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-brand-800 text-[14px] font-semibold rounded-lg hover:bg-gold-50 transition-all duration-300 shadow-lg shadow-black/15"
+              className={`group ${splitCtaBtnPrimary}`}
             >
               Become a Dealer
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 hover:border-white/40 transition-all duration-300"
-            >
+            <Link href="/contact" className={splitCtaBtnSecondary}>
               Get in Touch
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
     </>
   );
 }
