@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import SplitCtaBanner from "../components/SplitCtaBanner";
+import FormMessageDialog from "../components/FormMessageDialog";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   Handshake,
@@ -86,6 +87,7 @@ export default function DealerPage() {
   };
 
   const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,7 +99,12 @@ export default function DealerPage() {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        alert("Thank you for your interest! We will contact you shortly.");
+        setFeedback({
+          variant: "success",
+          title: "Enquiry sent",
+          message:
+            "Thank you for your interest! We will contact you shortly.",
+        });
         setFormData({
           companyName: "",
           contactPerson: "",
@@ -108,10 +115,18 @@ export default function DealerPage() {
           message: "",
         });
       } else {
-        alert("Something went wrong. Please try again.");
+        setFeedback({
+          variant: "error",
+          title: "Could not send",
+          message: "Something went wrong. Please try again.",
+        });
       }
     } catch {
-      alert("Something went wrong. Please try again.");
+      setFeedback({
+        variant: "error",
+        title: "Could not send",
+        message: "Something went wrong. Please try again.",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -119,11 +134,18 @@ export default function DealerPage() {
 
   return (
     <>
+      <FormMessageDialog
+        open={feedback !== null}
+        onClose={() => setFeedback(null)}
+        variant={feedback?.variant ?? "success"}
+        title={feedback?.title}
+        message={feedback?.message ?? ""}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src={SITE_IMG.heroHandshake(1400, 500)}
-          alt="Strategic partnership"
+          src={SITE_IMG.lubricantStudio(1400, 500)}
+          alt="Bluestreak product range for partners"
           fill
           priority
           className="object-cover object-center"
@@ -154,7 +176,7 @@ export default function DealerPage() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Why Partner — with image */}
@@ -281,10 +303,10 @@ export default function DealerPage() {
             <div className="lg:col-span-2">
               <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg mb-8">
                 <Image
-                  src={SITE_IMG.professionalHandshake(600, 400)}
-                  alt="Trusted partnership"
+                  src={SITE_IMG.brandOffice(600, 400)}
+                  alt="Bluestreak India Auto — partner with us"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
 

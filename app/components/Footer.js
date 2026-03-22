@@ -38,13 +38,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <div className="flex flex-col gap-4 mb-5">
-              <div className="bg-white rounded-lg px-3 py-2.5 w-fit shadow-sm">
+              <div className="bg-white rounded-lg px-5 py-3.5 w-fit shadow-sm">
                 <Image
                   src={LOCAL.logo}
                   alt="Bluestreak"
-                  width={168}
-                  height={44}
-                  className="h-7 sm:h-8 w-auto max-w-[200px] object-contain object-left"
+                  width={300}
+                  height={80}
+                  className="h-12 sm:h-14 w-auto max-w-[280px] sm:max-w-[340px] object-contain object-left"
                 />
               </div>
               <div className="flex flex-col">
@@ -116,7 +116,7 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
                 <span className="text-[13.5px] text-slate-400">
-                  info@bluestreaksindia.com
+                  info@bluestreakindia.com
                 </span>
               </li>
               <li className="flex items-start gap-2.5">

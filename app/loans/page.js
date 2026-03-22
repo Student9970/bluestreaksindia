@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { SITE_IMG } from "@/lib/site-images";
+import { SELL_CAR_IMG } from "@/lib/site-images";
+import FormMessageDialog from "../components/FormMessageDialog";
 import {
-  Car,
   ShieldCheck,
   Clock,
   Banknote,
@@ -18,19 +18,19 @@ const whySellWithUs = [
     icon: Banknote,
     name: "Best Price",
     desc: "We offer competitive valuations so you get the true market value for your car.",
-    image: SITE_IMG.financeMarkets(400, 280),
+    image: SELL_CAR_IMG.bestPrice(400, 280),
   },
   {
     icon: Clock,
     name: "Quick Process",
     desc: "From inspection to payment, we complete the sale in the shortest possible time.",
-    image: SITE_IMG.signingAgreement(400, 280),
+    image: SELL_CAR_IMG.quickProcess(400, 280),
   },
   {
     icon: ShieldCheck,
     name: "Hassle-Free",
     desc: "No haggling, no middlemen. Transparent paperwork and a smooth handover.",
-    image: SITE_IMG.executiveMeeting(400, 280),
+    image: SELL_CAR_IMG.hassleFree(400, 280),
   },
 ];
 
@@ -55,6 +55,7 @@ export default function SellCarPage() {
   };
 
   const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,7 +67,12 @@ export default function SellCarPage() {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        alert("Thank you! Our team will contact you shortly to discuss your car.");
+        setFeedback({
+          variant: "success",
+          title: "Request received",
+          message:
+            "Thank you! Our team will contact you shortly to discuss your car.",
+        });
         setFormData({
           name: "",
           phone: "",
@@ -82,10 +88,18 @@ export default function SellCarPage() {
           message: "",
         });
       } else {
-        alert("Something went wrong. Please try again.");
+        setFeedback({
+          variant: "error",
+          title: "Could not submit",
+          message: "Something went wrong. Please try again.",
+        });
       }
     } catch {
-      alert("Something went wrong. Please try again.");
+      setFeedback({
+        variant: "error",
+        title: "Could not submit",
+        message: "Something went wrong. Please try again.",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -93,11 +107,18 @@ export default function SellCarPage() {
 
   return (
     <>
+      <FormMessageDialog
+        open={feedback !== null}
+        onClose={() => setFeedback(null)}
+        variant={feedback?.variant ?? "success"}
+        title={feedback?.title}
+        message={feedback?.message ?? ""}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src={SITE_IMG.luxuryVehicle(1400, 500)}
-          alt="Premium pre-owned vehicle"
+          src={SELL_CAR_IMG.hero(1400, 500)}
+          alt="Premium vehicle — sell with confidence"
           fill
           priority
           className="object-cover object-center"
@@ -128,7 +149,7 @@ export default function SellCarPage() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Why sell with us */}
@@ -187,10 +208,10 @@ export default function SellCarPage() {
             <div className="lg:col-span-2 hidden lg:block space-y-4">
               <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src={SITE_IMG.showroom(500, 400)}
-                  alt="Vehicle appraisal"
+                  src={SELL_CAR_IMG.formSidebar(500, 400)}
+                  alt="Professional vehicle inspection and appraisal"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
               <ul className="space-y-3">

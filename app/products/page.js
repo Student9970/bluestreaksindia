@@ -74,11 +74,11 @@ export default function ProductsPage() {
             products &mdash; manufactured for performance and reliability.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Brand photography — facilities & product line */}
-      <section className="py-20 bg-slate-50 border-y border-slate-100">
+      <section className="py-20 bg-slate-50 border-b border-slate-100 md:border-t">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">

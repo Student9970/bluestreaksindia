@@ -35,15 +35,15 @@ export default function Navbar() {
   return (
     <nav className="bg-white/80 backdrop-blur-xl border-b border-slate-100/80 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[72px]">
+        <div className="flex items-center justify-between h-[96px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src={LOCAL.logo}
               alt="Bluestreak"
-              width={176}
-              height={48}
-              className="h-8 sm:h-9 w-auto max-w-[160px] sm:max-w-[200px] object-contain object-left"
+              width={320}
+              height={88}
+              className="h-12 sm:h-16 w-auto max-w-[260px] sm:max-w-[320px] object-contain object-left"
               priority
             />
             <div className="hidden sm:flex flex-col border-l border-slate-200 pl-3">

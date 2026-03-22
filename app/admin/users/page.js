@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Users, Plus, Trash2, X, Search } from "lucide-react";
+import FormMessageDialog from "../../components/FormMessageDialog";
 import { PERSONAS } from "@/utils/personas";
 
 const personaOptions = Object.entries(PERSONAS);
@@ -21,6 +22,7 @@ export default function AdminUsers() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
+  const [feedback, setFeedback] = useState(null);
 
   const fetchUsers = () => {
     fetch("/api/admin/users")
@@ -54,6 +56,11 @@ export default function AdminUsers() {
         setShowForm(false);
         setFormData(emptyForm);
         fetchUsers();
+        setFeedback({
+          variant: "success",
+          title: "User created",
+          message: "The new admin user has been added successfully.",
+        });
       } else {
         setError(data.error || "Failed to create user");
       }
@@ -73,7 +80,11 @@ export default function AdminUsers() {
     if (res.ok) {
       fetchUsers();
     } else {
-      alert(data.error || "Failed to delete user");
+      setFeedback({
+        variant: "error",
+        title: "Delete failed",
+        message: data.error || "Failed to delete user",
+      });
     }
   };
 
@@ -86,6 +97,13 @@ export default function AdminUsers() {
 
   return (
     <div>
+      <FormMessageDialog
+        open={feedback !== null}
+        onClose={() => setFeedback(null)}
+        variant={feedback?.variant ?? "error"}
+        title={feedback?.title}
+        message={feedback?.message ?? ""}
+      />
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
@@ -265,7 +283,7 @@ export default function AdminUsers() {
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
-                  placeholder="john@bluestreaksindia.com"
+                  placeholder="john@bluestreakindia.com"
                   className="w-full h-10 px-3.5 border border-slate-200 rounded-lg text-[13px] text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                 />
               </div>

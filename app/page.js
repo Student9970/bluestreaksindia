@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import SplitCtaBanner, {
-  splitCtaBtnPrimary,
-  splitCtaBtnSecondary,
-} from "./components/SplitCtaBanner";
+import SplitCtaBanner from "./components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   ArrowRight,
@@ -195,7 +192,7 @@ export default function Home() {
         </div>
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* ── Our Business Divisions ── */}
@@ -334,20 +331,14 @@ export default function Home() {
             covered.
           </p>
         }
-        actions={
-          <>
-            <Link
-              href="/dealership"
-              className={`group ${splitCtaBtnPrimary}`}
-            >
-              Become a Dealer
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link href="/contact" className={splitCtaBtnSecondary}>
-              Get in Touch
-            </Link>
-          </>
-        }
+        primaryAction={{
+          href: "/dealership",
+          label: "Become a Dealer",
+        }}
+        secondaryAction={{
+          href: "/contact",
+          label: "Get in Touch",
+        }}
       />
     </>
   );

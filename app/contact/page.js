@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { SITE_IMG } from "@/lib/site-images";
+import { CONTACT_IMG } from "@/lib/site-images";
+import FormMessageDialog from "../components/FormMessageDialog";
 import {
   Phone,
   Mail,
@@ -22,7 +23,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    lines: ["info@bluestreaksindia.com", "support@bluestreaksindia.com"],
+    lines: ["info@bluestreakindia.com", "support@bluestreakindia.com"],
     gradient: "from-emerald-500 to-teal-600",
   },
   {
@@ -53,6 +54,7 @@ export default function ContactPage() {
   };
 
   const [submitting, setSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,13 +66,26 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       });
       if (res.ok) {
-        alert("Thank you for your message! We will get back to you soon.");
+        setFeedback({
+          variant: "success",
+          title: "Message sent",
+          message:
+            "Thank you for your message! We will get back to you soon.",
+        });
         setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       } else {
-        alert("Something went wrong. Please try again.");
+        setFeedback({
+          variant: "error",
+          title: "Could not send",
+          message: "Something went wrong. Please try again.",
+        });
       }
     } catch {
-      alert("Something went wrong. Please try again.");
+      setFeedback({
+        variant: "error",
+        title: "Could not send",
+        message: "Something went wrong. Please try again.",
+      });
     } finally {
       setSubmitting(false);
     }
@@ -78,11 +93,18 @@ export default function ContactPage() {
 
   return (
     <>
+      <FormMessageDialog
+        open={feedback !== null}
+        onClose={() => setFeedback(null)}
+        variant={feedback?.variant ?? "success"}
+        title={feedback?.title}
+        message={feedback?.message ?? ""}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <Image
-          src={SITE_IMG.clientConsultation(1400, 500)}
-          alt="Client consultation"
+          src={CONTACT_IMG.hero(1400, 500)}
+          alt="Professional team meeting"
           fill
           priority
           className="object-cover object-center"
@@ -111,7 +133,7 @@ export default function ContactPage() {
             respond promptly.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Info cards */}
@@ -148,8 +170,8 @@ export default function ContactPage() {
             <div className="order-2 lg:order-1 space-y-6">
               <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src={SITE_IMG.brandOffice(700, 400)}
-                  alt="Bluestreak India Auto office"
+                  src={CONTACT_IMG.facility(700, 400)}
+                  alt="Bluestreak manufacturing facility"
                   fill
                   className="object-cover"
                 />
@@ -176,7 +198,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                    info@bluestreaksindia.com
+                    info@bluestreakindia.com
                   </div>
                   <div className="flex items-center gap-2.5">
                     <Clock className="w-4 h-4 text-gold-500 shrink-0" />
@@ -188,16 +210,16 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-32 rounded-2xl overflow-hidden shadow-md">
                   <Image
-                    src={SITE_IMG.diverseTeam(400, 300)}
-                    alt="Professional team"
+                    src={CONTACT_IMG.customerCare(400, 300)}
+                    alt="Customer support and service"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="relative h-32 rounded-2xl overflow-hidden shadow-md">
                   <Image
-                    src={SITE_IMG.boardroomDiscussion(400, 300)}
-                    alt="Executive support"
+                    src={CONTACT_IMG.teamSupport(400, 300)}
+                    alt="Team collaboration"
                     fill
                     className="object-cover"
                   />
@@ -212,10 +234,10 @@ export default function ContactPage() {
                   Interested in joining our team? Send your resume at:
                 </p>
                 <a
-                  href="mailto:careers@bluestreaksindia.com"
+                  href="mailto:careers@bluestreakindia.com"
                   className="text-brand-700 text-[13px] font-semibold hover:underline"
                 >
-                  careers@bluestreaksindia.com
+                  careers@bluestreakindia.com
                 </a>
               </div>
             </div>
@@ -291,8 +313,8 @@ export default function ContactPage() {
       {/* Image divider */}
       <section className="relative h-56 md:h-64">
         <Image
-          src={SITE_IMG.heroSkyline(1400, 400)}
-          alt="Business district"
+          src={CONTACT_IMG.closingBand(1400, 400)}
+          alt="Collaborative workspace"
           fill
           className="object-cover"
         />

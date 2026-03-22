@@ -105,7 +105,7 @@ export default function AboutPage() {
             excellence across multiple industries.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Story + Image + Stats */}

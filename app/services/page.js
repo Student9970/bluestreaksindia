@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import SplitCtaBanner, { splitCtaBtnPrimary } from "../components/SplitCtaBanner";
+import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
   Scale,
@@ -11,7 +10,6 @@ import {
   Settings,
   Snowflake,
   CircleDot,
-  ArrowRight,
   Sparkles,
   Gavel,
   Building2,
@@ -149,7 +147,7 @@ const sections = [
         icon: CircleDot,
         name: "Brake Oil",
         desc: "DOT-certified brake fluids for reliable stopping power across all driving conditions",
-        image: SITE_IMG.luxuryVehicle(400, 280),
+        image: SITE_IMG.brakeStopping(400, 280),
       },
     ],
   },
@@ -191,7 +189,7 @@ export default function ServicesPage() {
             manufacturing &mdash; three pillars of the Bluestreak Group.
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
+        <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
       </section>
 
       {/* Service overview strip */}
@@ -309,12 +307,7 @@ export default function ServicesPage() {
             lubricants &mdash; our team is ready to help. Reach out today.
           </p>
         }
-        actions={
-          <Link href="/contact" className={`group ${splitCtaBtnPrimary}`}>
-            Contact Us
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-        }
+        primaryAction={{ href: "/contact", label: "Contact Us" }}
       />
     </>
   );

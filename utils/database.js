@@ -7,7 +7,8 @@ export const connectToDB = async () => {
     }
     try {
         await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "bluestreaksindia",
+            // Override with MONGODB_DB_NAME if your Atlas database name differs from the default.
+            dbName: process.env.MONGODB_DB_NAME || "bluestreakindia",
         });
         isConnected = true;
     } catch (error) {

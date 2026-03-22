@@ -54,7 +54,7 @@ export default function Sidebar({ user }) {
           </div>
           <div>
             <span className="text-[15px] font-bold text-white block leading-tight">
-              Blue Streaks
+              Bluestreak
             </span>
             <span className="text-[11px] text-slate-500 font-medium uppercase tracking-wider">
               Admin Panel

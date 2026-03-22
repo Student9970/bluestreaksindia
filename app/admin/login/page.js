@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
           </div>
           <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
           <p className="text-slate-400 text-[14px] mt-1">
-            Blue Streaks India
+            Bluestreak India
           </p>
         </div>
 
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="admin@bluestreaksindia.com"
+                placeholder="admin@bluestreakindia.com"
                 className="w-full h-11 px-3.5 border border-slate-200 rounded-lg text-[14px] text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500 transition-shadow"
               />
             </div>
@@ -116,7 +116,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-[12px] text-slate-600 mt-6">
-          &copy; {new Date().getFullYear()} Blue Streaks India. All rights
+          &copy; {new Date().getFullYear()} Bluestreak India. All rights
           reserved.
         </p>
       </div>
