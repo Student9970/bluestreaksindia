@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { generateUploadDropzone } from "@uploadthing/react";
 import { Plus, Pencil, Trash2, X, Package, Search } from "lucide-react";
+
+const UploadDropzone = generateUploadDropzone({
+  url: "/api/uploadthing",
+  fetch: (input, init) =>
+    fetch(input, { ...init, credentials: "include" }),
+});
 
 const categories = [
   "Oils & Lubricants",
@@ -375,7 +382,59 @@ export default function AdminProducts() {
               </div>
               <div>
                 <label className="block text-[13px] font-medium text-slate-700 mb-1.5">
-                  Image URL
+                  Product image
+                </label>
+                <p className="text-[12px] text-slate-500 mb-2">
+                  Drag and drop or click to choose a file (max 4MB, one image).
+                </p>
+                {formData.image ? (
+                  <div className="space-y-2 mb-3">
+                    <div className="relative rounded-lg border border-slate-200 bg-slate-50 overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={formData.image}
+                        alt="Product preview"
+                        className="w-full max-h-40 object-contain bg-white"
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setFormData({ ...formData, image: "" })
+                      }
+                      className="text-[12px] font-medium text-slate-600 hover:text-red-600"
+                    >
+                      Remove image
+                    </button>
+                  </div>
+                ) : null}
+                <UploadDropzone
+                  endpoint="productImage"
+                  config={{ mode: "auto" }}
+                  onClientUploadComplete={(res) => {
+                    const url = res?.[0]?.ufsUrl || res?.[0]?.url;
+                    if (url) {
+                      setFormData((prev) => ({ ...prev, image: url }));
+                    }
+                  }}
+                  onUploadError={(err) => {
+                    console.error(err);
+                    alert(err.message || "Upload failed");
+                  }}
+                  appearance={{
+                    container:
+                      "border border-dashed border-slate-300 rounded-lg bg-slate-50/80 hover:bg-slate-50 transition-colors p-4",
+                    uploadIcon: "text-slate-400",
+                    label: "text-[13px] text-slate-600 cursor-pointer",
+                    allowedContent: "text-[11px] text-slate-400",
+                    button: ({ files, isUploading }) =>
+                      !isUploading && files.length === 0
+                        ? "hidden"
+                        : "bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-semibold rounded-md px-3 py-1.5 border-0 shadow-sm cursor-pointer",
+                  }}
+                />
+                <label className="block text-[12px] font-medium text-slate-500 mt-3 mb-1">
+                  Or paste image URL
                 </label>
                 <input
                   type="text"
@@ -383,7 +442,7 @@ export default function AdminProducts() {
                   onChange={(e) =>
                     setFormData({ ...formData, image: e.target.value })
                   }
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="https://…"
                   className="w-full h-10 px-3.5 border border-slate-200 rounded-lg text-[13px] text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                 />
               </div>

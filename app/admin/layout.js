@@ -54,7 +54,9 @@ export default function AdminLayout({ children }) {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar user={user} />
       <main className="flex-1 min-w-0">
-        <div className="p-6 lg:p-8">{children}</div>
+        <div className="p-6 pt-20 lg:p-8">
+          {children}
+        </div>
       </main>
     </div>
   );
