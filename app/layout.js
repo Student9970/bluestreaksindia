@@ -2,7 +2,8 @@ import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout";
 
 export const metadata = {
-  title: "Bluestreak India - Your Trusted Partner for Oils, Automobiles & Legal Services",
+  title:
+    "Bluestreak India Private Limited - Your Trusted Partner for Oils, Automobiles & Legal Services",
   description:
     "Bluestreak India offers premium lubricants, automobile sales & service, legal consultancy, transport & cargo services, and financial solutions across India.",
 };
