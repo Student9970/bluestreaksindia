@@ -276,7 +276,7 @@ export default function ContactPage() {
                         <option value="lubricants">Lubricants &amp; Oils</option>
                         <option value="transport">Transport &amp; Cargo</option>
                         <option value="sell-car">Sell a Car</option>
-                        <option value="dealership">Dealership Partnership</option>
+                        <option value="dealership">Partnership</option>
                         <option value="careers">Careers</option>
                       </select>
                     </div>
@@ -353,8 +353,8 @@ export default function ContactPage() {
                 a: "We offer automobiles, legal services, lubricant manufacturing, transport & cargo, and loan services across India.",
               },
               {
-                q: "How can I become a dealer?",
-                a: "Visit our Dealership page or contact us directly. We'll guide you through the partnership process.",
+                q: "How can I become a partner?",
+                a: "Visit our Partnership page or contact us directly. We'll guide you through the process.",
               },
               {
                 q: "What are your working hours?",

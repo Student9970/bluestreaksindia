@@ -8,9 +8,9 @@ export const PERSONAS = {
 
 export function getPersonaAccess(persona) {
   const access = {
-    administrator: ["dashboard", "products", "dealership", "finance", "contact", "users"],
+    administrator: ["dashboard", "products", "partnership", "finance", "contact", "users"],
     product_manager: ["dashboard", "products"],
-    dealer_relations: ["dashboard", "dealership"],
+    dealer_relations: ["dashboard", "partnership"],
     customer_support: ["dashboard", "contact"],
     finance_manager: ["dashboard", "finance"],
   };

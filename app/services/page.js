@@ -181,7 +181,7 @@ export default function ServicesPage() {
               What We Offer
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight shadow-md">
             Our Services
           </h1>
           <p className="mt-4 text-brand-200 text-shadow-md text-[16px] max-w-xl leading-relaxed">

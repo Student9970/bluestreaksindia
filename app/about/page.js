@@ -21,7 +21,7 @@ const stats = [
   { value: "15+", label: "Years Experience", icon: Clock },
   { value: "500+", label: "Clients Served", icon: Users },
   { value: "1000+", label: "Projects Completed", icon: Briefcase },
-  { value: "200+", label: "Dealership Network", icon: MapPin },
+  { value: "200+", label: "Partner Network", icon: MapPin },
 ];
 
 const verticals = [

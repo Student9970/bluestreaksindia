@@ -23,7 +23,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services", hasDropdown: true },
   { name: "Products", href: "/products" },
-  { name: "Dealership", href: "/dealership" },
+  { name: "Partnership", href: "/partnership" },
   { name: "Sell a Car", href: "/loans" },
   { name: "About", href: "/about" },
 ];

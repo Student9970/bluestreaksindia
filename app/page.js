@@ -332,8 +332,8 @@ export default function Home() {
           </p>
         }
         primaryAction={{
-          href: "/dealership",
-          label: "Become a Dealer",
+          href: "/partnership",
+          label: "Become a Partner",
         }}
         secondaryAction={{
           href: "/contact",

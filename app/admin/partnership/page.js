@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Handshake, Search } from "lucide-react";
 
-export default function AdminDealership() {
+export default function AdminPartnership() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -30,10 +30,10 @@ export default function AdminDealership() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
           <Handshake className="w-6 h-6 text-brand-600" />
-          Dealership Enquiries
+          Partnership Enquiries
         </h1>
         <p className="text-[13px] text-slate-500 mt-1">
-          View all dealership applications
+          View all partnership applications
         </p>
       </div>
 
@@ -93,7 +93,7 @@ export default function AdminDealership() {
                     colSpan={7}
                     className="px-5 py-12 text-center text-[14px] text-slate-400"
                   >
-                    No dealership enquiries found
+                    No partnership enquiries found
                   </td>
                 </tr>
               ) : (

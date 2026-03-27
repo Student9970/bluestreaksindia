@@ -35,10 +35,10 @@ export default function ProductsPage() {
     activeFilter === "All Products"
       ? products
       : products.filter(
-          (p) =>
-            p.category === activeFilter ||
-            (p.tags || []).includes(activeFilter),
-        );
+        (p) =>
+          p.category === activeFilter ||
+          (p.tags || []).includes(activeFilter),
+      );
 
   return (
     <>
@@ -119,11 +119,10 @@ export default function ProductsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${
-                  activeFilter === cat
+                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${activeFilter === cat
                     ? "bg-brand-950 text-white border-brand-950 shadow-md shadow-brand-950/20"
                     : "bg-white text-slate-600 border-slate-200 hover:border-brand-300 hover:text-brand-700 hover:shadow-sm"
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -152,7 +151,7 @@ export default function ProductsPage() {
                           src={product.image}
                           alt={product.name}
                           fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                          className="object-contain group-hover:scale-110 transition-transform duration-700 ease-out"
                         />
                         {product.badge && (
                           <span className="absolute top-3 left-3 px-3 py-1 bg-brand-950 text-white text-[11px] font-bold rounded-lg shadow-md uppercase tracking-wider">

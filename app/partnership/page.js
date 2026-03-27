@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import SplitCtaBanner from "../components/SplitCtaBanner";
 import FormMessageDialog from "../components/FormMessageDialog";
 import { SITE_IMG } from "@/lib/site-images";
 import {
-  Handshake,
   TrendingUp,
   ShieldCheck,
   HeadphonesIcon,
@@ -25,9 +23,9 @@ import {
 } from "lucide-react";
 
 const whyPartner = [
-  { icon: TrendingUp, name: "High Profit Margins", desc: "Attractive dealer margins on our complete product range" },
+  { icon: TrendingUp, name: "High Profit Margins", desc: "Attractive margins on our complete product range" },
   { icon: ShieldCheck, name: "Quality Assurance", desc: "All products meet international quality and safety standards" },
-  { icon: HeadphonesIcon, name: "Dedicated Support", desc: "Round-the-clock dealer support and training programs" },
+  { icon: HeadphonesIcon, name: "Dedicated Support", desc: "Round-the-clock partner support and training programs" },
   { icon: Package, name: "Inventory Support", desc: "Flexible inventory management with just-in-time delivery" },
   { icon: Award, name: "Brand Recognition", desc: "Leverage the trusted Bluestreak Group brand in your market" },
   { icon: Users, name: "Transparent Dealings", desc: "Clear, honest business practices with complete transparency" },
@@ -36,7 +34,7 @@ const whyPartner = [
 const benefits = [
   "Quality Assurance on all products",
   "Quantity Assortment for every order size",
-  "Competitive pricing & dealer margins",
+  "Competitive pricing & partner margins",
   "Flexible credit terms for partners",
   "Marketing support & brand collateral",
   "Dedicated account management",
@@ -48,7 +46,7 @@ const steps = [
   {
     step: 1,
     title: "Fill the Form",
-    desc: "Submit your details through our dealership enquiry form below.",
+    desc: "Submit your details through our partnership enquiry form below.",
     icon: ClipboardList,
   },
   {
@@ -71,7 +69,7 @@ const steps = [
   },
 ];
 
-export default function DealerPage() {
+export default function PartnershipPage() {
   const [formData, setFormData] = useState({
     companyName: "",
     contactPerson: "",
@@ -168,7 +166,7 @@ export default function DealerPage() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Become Our Dealership Partner
+              Become Our Partner
             </h1>
             <p className="mt-4 text-brand-200/70 text-[16px] leading-relaxed">
               Join us for a profitable partnership. Expand your business with
@@ -196,7 +194,7 @@ export default function DealerPage() {
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
               </div>
               <p className="text-slate-500 text-[15px] leading-relaxed">
-                Our dealer partners enjoy exceptional margins, dedicated support,
+                Our partners enjoy exceptional margins, dedicated support,
                 and the backing of a trusted brand. We invest in your success
                 with training, marketing materials, and flexible inventory
                 management.
@@ -239,19 +237,19 @@ export default function DealerPage() {
       <section className="relative h-56 md:h-72">
         <Image
           src={SITE_IMG.showroom(1400, 400)}
-          alt="Premium dealership environment"
+          alt="Premium partnership and distribution environment"
           fill
           className="object-cover"
         />
         <div className="absolute inset-0 bg-brand-950/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-2xl md:text-3xl font-bold tracking-tight text-center px-6">
-            Join 200+ Dealers Across India
+            Join 200+ Partners Across India
           </p>
         </div>
       </section>
 
-      {/* How to Become a Dealer */}
+      {/* How to partner */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-16">
@@ -259,7 +257,7 @@ export default function DealerPage() {
               Get Started
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-              How to Become a Dealer
+              How to Partner With Us
             </h2>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -267,7 +265,7 @@ export default function DealerPage() {
               <div className="h-px w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              Simple 4-step process to start your dealership journey.
+              Simple 4-step process to start your partnership with us.
             </p>
           </div>
 
@@ -351,7 +349,7 @@ export default function DealerPage() {
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 p-7 sm:p-9">
                 <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-7">
-                  Dealership Enquiry Form
+                  Partnership Enquiry Form
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

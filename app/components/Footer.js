@@ -12,7 +12,7 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services" },
-  { name: "Become a Dealer", href: "/dealership" },
+  { name: "Partnership", href: "/partnership" },
   { name: "Sell a Car", href: "/loans" },
   { name: "Contact Us", href: "/contact" },
 ];

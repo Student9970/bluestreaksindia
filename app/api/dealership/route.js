@@ -9,10 +9,10 @@ export async function POST(req) {
     await Dealership.create(data);
     return NextResponse.json({
       success: true,
-      message: "Dealership enquiry submitted successfully",
+      message: "Partnership enquiry submitted successfully",
     });
   } catch (error) {
-    console.error("Dealership submission error:", error);
+    console.error("Partnership enquiry submission error:", error);
     return NextResponse.json(
       { error: "Failed to submit enquiry" },
       { status: 500 }

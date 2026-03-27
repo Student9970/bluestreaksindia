@@ -19,7 +19,7 @@ const statCards = [
   },
   {
     key: "dealerships",
-    label: "Dealership Enquiries",
+    label: "Partnership Enquiries",
     icon: Handshake,
     color: "bg-emerald-50 text-emerald-600 border-emerald-100",
   },

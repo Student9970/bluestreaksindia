@@ -22,7 +22,7 @@ export async function GET() {
   if (access.includes("products")) {
     stats.products = await Product.countDocuments();
   }
-  if (access.includes("dealership")) {
+  if (access.includes("partnership")) {
     stats.dealerships = await Dealership.countDocuments();
   }
   if (access.includes("finance")) {
