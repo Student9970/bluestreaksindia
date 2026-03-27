@@ -6,17 +6,17 @@ import { Plus, Pencil, Trash2, X, Package, Search } from "lucide-react";
 
 const UploadDropzone = generateUploadDropzone({
   url: "/api/uploadthing",
-  fetch: (input, init) =>
-    fetch(input, { ...init, credentials: "include" }),
+  fetch: (input, init) => fetch(input, { ...init, credentials: "include" }),
 });
 
 const categories = [
   "Oils & Lubricants",
   "Coolants",
-  "Greases",
-  "Industrial",
-  "Automotive",
-  "Transport & Heavy",
+  // "Greases",
+  // "Industrial",
+  // "Automotive",
+  // "Transport & Heavy",
+  "Others",
 ];
 
 const emptyForm = {
@@ -62,7 +62,10 @@ export default function AdminProducts() {
         .split(",")
         .map((t) => t.trim())
         .filter(Boolean),
-      price: formData.price === "" || formData.price === null ? null : Number(formData.price),
+      price:
+        formData.price === "" || formData.price === null
+          ? null
+          : Number(formData.price),
     };
 
     const url = editing
@@ -113,7 +116,7 @@ export default function AdminProducts() {
   const filtered = products.filter(
     (p) =>
       p.name?.toLowerCase().includes(search.toLowerCase()) ||
-      p.category?.toLowerCase().includes(search.toLowerCase())
+      p.category?.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -219,7 +222,9 @@ export default function AdminProducts() {
                           &#8377;{Number(product.price).toLocaleString("en-IN")}
                         </span>
                       ) : (
-                        <span className="text-[12px] text-slate-300">&mdash;</span>
+                        <span className="text-[12px] text-slate-300">
+                          &mdash;
+                        </span>
                       )}
                     </td>
                     <td className="px-5 py-3.5">
@@ -240,7 +245,9 @@ export default function AdminProducts() {
                           {product.badge}
                         </span>
                       ) : (
-                        <span className="text-[12px] text-slate-300">&mdash;</span>
+                        <span className="text-[12px] text-slate-300">
+                          &mdash;
+                        </span>
                       )}
                     </td>
                     <td className="px-5 py-3.5 text-right">
@@ -399,9 +406,7 @@ export default function AdminProducts() {
                     </div>
                     <button
                       type="button"
-                      onClick={() =>
-                        setFormData({ ...formData, image: "" })
-                      }
+                      onClick={() => setFormData({ ...formData, image: "" })}
                       className="text-[12px] font-medium text-slate-600 hover:text-red-600"
                     >
                       Remove image
@@ -410,7 +415,7 @@ export default function AdminProducts() {
                 ) : null}
                 <UploadDropzone
                   endpoint="productImage"
-                  config={{ mode: "auto" }}
+                  config={{ mode: "direct" }}
                   onClientUploadComplete={(res) => {
                     const url = res?.[0]?.ufsUrl || res?.[0]?.url;
                     if (url) {

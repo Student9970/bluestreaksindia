@@ -11,7 +11,9 @@ const ingestEnv = process.env.UPLOADTHING_INGEST_URL?.trim().replace(/\/$/, "");
 export const { GET, POST } = createRouteHandler({
   router: ourFileRouter,
   config: {
-    ...(token ? { token } : {}),
-    ...(ingestEnv ? { ingestUrl: ingestEnv } : {}),
+    // ...(token ? { token } : {}),
+    // ...(ingestEnv ? { ingestUrl: ingestEnv } : {}),
+    token: token,
+    ingestUrl: ingestEnv,
   },
 });

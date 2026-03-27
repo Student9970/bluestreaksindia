@@ -9,10 +9,11 @@ const categories = [
   "All Products",
   "Oils & Lubricants",
   "Coolants",
-  "Greases",
-  "Industrial",
-  "Automotive",
-  "Transport & Heavy",
+  // "Greases",
+  // "Industrial",
+  // "Automotive",
+  // "Transport & Heavy",
+  "Others",
 ];
 
 export default function ProductsPage() {
@@ -34,10 +35,10 @@ export default function ProductsPage() {
     activeFilter === "All Products"
       ? products
       : products.filter(
-        (p) =>
-          p.category === activeFilter ||
-          (p.tags || []).includes(activeFilter)
-      );
+          (p) =>
+            p.category === activeFilter ||
+            (p.tags || []).includes(activeFilter),
+        );
 
   return (
     <>
@@ -70,8 +71,8 @@ export default function ProductsPage() {
             Products
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
-            Premium oils, lubricants, coolants, greases, and industrial
-            products &mdash; manufactured for performance and reliability.
+            Premium oils, lubricants, coolants, greases, and industrial products
+            &mdash; manufactured for performance and reliability.
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -118,10 +119,11 @@ export default function ProductsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${activeFilter === cat
+                className={`px-5 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${
+                  activeFilter === cat
                     ? "bg-brand-950 text-white border-brand-950 shadow-md shadow-brand-950/20"
                     : "bg-white text-slate-600 border-slate-200 hover:border-brand-300 hover:text-brand-700 hover:shadow-sm"
-                  }`}
+                }`}
               >
                 {cat}
               </button>

@@ -165,7 +165,7 @@ export default function ServicesPage() {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-brand-950/80 via-brand-950/70 to-brand-950/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-brand-950/20 via-brand-950/30 to-brand-950/40" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -184,8 +184,8 @@ export default function ServicesPage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
             Our Services
           </h1>
-          <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
-            Legal expertise, fiduciary trust management, and premium lubricant
+          <p className="mt-4 text-brand-200 text-shadow-md text-[16px] max-w-xl leading-relaxed">
+            Legal expertise, judiciary trust management, and premium lubricant
             manufacturing &mdash; three pillars of the Bluestreak Group.
           </p>
         </div>
@@ -229,10 +229,16 @@ export default function ServicesPage() {
         >
           <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
             {/* Header with image */}
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ${idx % 2 === 1 ? "" : ""}`}>
+            <div
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ${idx % 2 === 1 ? "" : ""}`}
+            >
               <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
                 <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                  {idx === 0 ? "Legal Services" : idx === 1 ? "Fiduciary Services" : "Manufacturing"}
+                  {idx === 0
+                    ? "Legal Services"
+                    : idx === 1
+                      ? "Fiduciary Services"
+                      : "Manufacturing"}
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   {section.title}
@@ -246,7 +252,9 @@ export default function ServicesPage() {
                   {section.description}
                 </p>
               </div>
-              <div className={`relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-xl ${idx % 2 === 1 ? "lg:order-1" : ""}`}>
+              <div
+                className={`relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-xl ${idx % 2 === 1 ? "lg:order-1" : ""}`}
+              >
                 <Image
                   src={section.image}
                   alt={section.imageAlt}
@@ -258,7 +266,9 @@ export default function ServicesPage() {
             </div>
 
             {/* Sub-service cards with images */}
-            <div className={`grid grid-cols-1 sm:grid-cols-2 ${section.features.length > 4 ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-5`}>
+            <div
+              className={`grid grid-cols-1 sm:grid-cols-2 ${section.features.length > 4 ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-5`}
+            >
               {section.features.map((feat) => (
                 <div
                   key={feat.name}
@@ -272,7 +282,9 @@ export default function ServicesPage() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className={`absolute bottom-3 left-3 w-9 h-9 bg-linear-to-br ${section.gradient} rounded-lg flex items-center justify-center shadow-md`}>
+                    <div
+                      className={`absolute bottom-3 left-3 w-9 h-9 bg-linear-to-br ${section.gradient} rounded-lg flex items-center justify-center shadow-md`}
+                    >
                       <feat.icon className="w-4 h-4 text-white" />
                     </div>
                   </div>
