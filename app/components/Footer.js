@@ -50,7 +50,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-[15px] font-bold text-white tracking-tight leading-tight">
-                  Bluestreak Group
+                  Bluestreak
                 </span>
                 <span className="text-[10px] font-medium text-slate-500 tracking-wider uppercase leading-tight">
                   India Pvt. Ltd.
