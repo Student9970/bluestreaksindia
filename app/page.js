@@ -11,12 +11,16 @@ import {
   Car,
   Droplets,
   Truck,
-    CircleDollarSign,
-    Scale,
+  CircleDollarSign,
+  Scale,
   Landmark,
   ChevronRight,
   Sparkles,
+  Factory,
 } from "lucide-react";
+
+const FACTORY_HERO = "/assets/images/bl_factory_1.PNG";
+const FACTORY_SECTION = "/assets/images/bl_factory_2.PNG";
 
 const divisions = [
   {
@@ -125,13 +129,14 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden min-h-[580px] md:min-h-[660px]">
         <Image
-          src={SITE_IMG.heroOffice(1600, 700)}
-          alt="Premium corporate workspace"
+          src={FACTORY_HERO}
+          alt="Bluestreak Group manufacturing and operations"
           fill
           priority
-          className="object-cover object-center scale-105"
+          sizes="100vw"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-linear-to-b from-brand-950/80 via-brand-950/70 to-brand-950/90" />
+        <div className="absolute inset-0 bg-linear-to-b from-brand-950/42 via-brand-950/32 to-brand-950/50" />
 
         {/* Decorative grid overlay */}
         <div
@@ -145,15 +150,17 @@ export default function Home() {
 
         <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
           {/* Badge */}
-          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/30 bg-gold-400/10 mb-8">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[12px] font-semibold text-gold-300 uppercase tracking-widest">
+          <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/50 mb-8">
+            <Sparkles className="w-3.5 h-3.5 text-gold-300 filter-[drop-shadow(0_1px_2px_rgba(0,0,0,0.9))]" />
+            <span className="text-[12px] font-semibold text-gold-200 uppercase tracking-widest [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_12px_rgba(0,0,0,0.65)]">
               Bluestreak India Private Limited
             </span>
           </div>
 
-          <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight uppercase">
-            Bluestreak
+          <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight uppercase">
+            <span className="block text-white [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_0_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.85),0_4px_28px_rgba(0,0,0,0.55)]">
+              Bluestreak
+            </span>
             <span className="block gold-shimmer">Group</span>
           </h1>
 
@@ -164,11 +171,11 @@ export default function Home() {
             <span className="w-12 h-px bg-linear-to-l from-transparent to-gold-400/60" />
           </div>
 
-          <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl text-white/90 font-light italic tracking-wide">
+          <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl text-white font-medium italic tracking-wide [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_3px_rgba(0,0,0,0.95),0_2px_16px_rgba(0,0,0,0.65)]">
             Building Businesses. Creating Global Value.
           </p>
 
-          <p className="animate-fade-in-up-delay-3 mt-6 text-[15px] text-brand-200/70 leading-relaxed max-w-2xl mx-auto">
+          <p className="animate-fade-in-up-delay-3 mt-6 text-[15px] text-white leading-relaxed max-w-2xl mx-auto font-medium [text-shadow:0_0_1px_rgba(0,0,0,0.85),0_1px_2px_rgba(0,0,0,0.9),0_2px_20px_rgba(0,0,0,0.6)]">
             A diversified business group operating across automobiles,
             lubricants, logistics, finance, legal advisory and fiduciary
             services.
@@ -184,7 +191,7 @@ export default function Home() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-[14px] font-semibold rounded-lg hover:bg-white/10 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white/80 text-white text-[14px] font-semibold rounded-lg hover:border-white transition-all duration-300 [text-shadow:0_1px_3px_rgba(0,0,0,0.95),0_0_12px_rgba(0,0,0,0.55)]"
             >
               Contact Us
             </Link>
@@ -309,6 +316,54 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Manufacturing & scale ── */}
+      <section className="py-28">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative aspect-4/3 lg:aspect-auto lg:h-[min(420px,52vw)] max-h-[480px] rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/40 border border-slate-200/80 ring-1 ring-black/5">
+              <Image
+                src={FACTORY_SECTION}
+                alt="Bluestreak facility and production infrastructure"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-[11px] font-bold uppercase tracking-widest mb-5">
+                <Factory className="w-3.5 h-3.5" />
+                Infrastructure
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+                Built for quality at scale
+              </h2>
+              <div className="mt-4 flex items-center gap-2">
+                <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+                <span className="w-2 h-2 rounded-full bg-gold-400" />
+                <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
+              </div>
+              <p className="mt-6 text-slate-600 text-[15px] leading-relaxed">
+                Our plants and facilities reflect the same discipline we bring to
+                every vertical: modern processes, rigorous standards, and the
+                capacity to serve partners and customers across India.
+              </p>
+              <p className="mt-4 text-slate-500 text-[14px] leading-relaxed">
+                From lubricants to logistics and beyond, we invest in physical
+                infrastructure so your business can rely on consistent supply,
+                safety, and service.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 mt-8 text-[14px] font-semibold text-brand-700 hover:text-brand-800"
+              >
+                Discuss your requirements
+                <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

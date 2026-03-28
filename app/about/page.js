@@ -347,9 +347,9 @@ export default function AboutPage() {
           <p className="text-[15px] leading-[1.85] text-white/90">
             Bluestreak Group India Pvt. Ltd. operates from multiple offices
             across India, ensuring we are always close to our clients and
-            partners. Our headquarters in Mumbai serves as the hub for all our
-            operations, with regional offices enabling us to deliver prompt
-            service across the country.
+            partners. Our headquarters in Lower Parel, Mumbai, Maharashtra,
+            India, serves as the hub for all our operations, with regional
+            offices enabling us to deliver prompt service across the country.
           </p>
         }
       />

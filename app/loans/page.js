@@ -225,7 +225,7 @@ export default function SellCarPage() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Field label="Your Name *" name="name" value={formData.name} onChange={handleChange} placeholder="Full name" required />
-                    <Field label="Phone *" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" required />
+                    <Field label="Phone *" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 95721 13880" required />
                   </div>
                   <div>
                     <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" />

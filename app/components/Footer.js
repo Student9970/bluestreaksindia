@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LOCAL } from "@/lib/site-images";
 import {
   Phone,
+  Headset,
   Mail,
   MapPin,
   Clock,
@@ -109,8 +110,19 @@ export default function Footer() {
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
-                <span className="text-[13.5px] text-slate-400">
-                  +91 98765 43210
+                <span className="text-[13.5px] text-slate-400 leading-relaxed">
+                  +91 95721 13880
+                  <br />
+                  +91 90499 53517
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <Headset className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
+                <span className="text-[13.5px] text-slate-400 leading-relaxed">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-gold-500/90 mb-0.5">
+                    Grievances &amp; Hotline
+                  </span>
+                  +91 95351 72871
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
@@ -122,7 +134,7 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
                 <span className="text-[13.5px] text-slate-400">
-                  Mumbai, Maharashtra, India
+                  Lower Parel Mumbai, Maharashtra, India
                 </span>
               </li>
               <li className="flex items-start gap-2.5">

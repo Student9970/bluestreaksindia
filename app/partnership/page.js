@@ -13,6 +13,7 @@ import {
   Users,
   MapPin,
   Phone,
+  Headset,
   Send,
   Check,
   ClipboardList,
@@ -333,13 +334,26 @@ export default function PartnershipPage() {
                   Immediate Enquiries
                 </h3>
                 <div className="space-y-2.5 text-[13px] text-brand-800/70">
-                  <p className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-brand-600" />
-                    +91 98765 43210
+                  <p className="flex items-start gap-2.5">
+                    <Phone className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+                    <span>
+                      +91 95721 13880
+                      <br />
+                      +91 90499 53517
+                    </span>
+                  </p>
+                  <p className="flex items-start gap-2.5 pt-2 border-t border-brand-200/60">
+                    <Headset className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+                    <span>
+                      <span className="block text-[12px] font-semibold text-brand-900 mb-0.5">
+                        Grievances &amp; Hotline
+                      </span>
+                      +91 95351 72871
+                    </span>
                   </p>
                   <p className="flex items-center gap-2.5">
-                    <MapPin className="w-4 h-4 text-brand-600" />
-                    Mumbai, Maharashtra, India
+                    <MapPin className="w-4 h-4 text-brand-600 shrink-0" />
+                    Lower Parel Mumbai, Maharashtra, India
                   </p>
                 </div>
               </div>
@@ -357,7 +371,7 @@ export default function PartnershipPage() {
                     <Field label="Contact Person" name="contactPerson" value={formData.contactPerson} onChange={handleChange} placeholder="Full name" required />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <Field label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" required />
+                    <Field label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 95721 13880" required />
                     <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@company.com" required />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

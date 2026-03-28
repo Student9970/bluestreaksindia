@@ -6,6 +6,7 @@ import { CONTACT_IMG } from "@/lib/site-images";
 import FormMessageDialog from "../components/FormMessageDialog";
 import {
   Phone,
+  Headset,
   Mail,
   MapPin,
   Clock,
@@ -17,8 +18,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    lines: ["+91 98765 43210", "+91 98765 43211"],
+    lines: ["+91 95721 13880", "+91 90499 53517"],
     gradient: "from-sky-500 to-blue-600",
+  },
+  {
+    icon: Headset,
+    title: "Grievances & Hotline",
+    lines: ["+91 95351 72871"],
+    gradient: "from-rose-500 to-red-600",
   },
   {
     icon: Mail,
@@ -29,7 +36,10 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    lines: ["Bluestreak Group", "Mumbai, Maharashtra, India"],
+    lines: [
+      "Six offices across India",
+      "Bengaluru, Goa, Mumbai, Noida, Chennai, Gurgaon",
+    ],
     gradient: "from-amber-500 to-orange-600",
   },
   {
@@ -37,6 +47,61 @@ const contactInfo = [
     title: "Working Hours",
     lines: ["Mon \u2013 Sat: 9 AM \u2013 6 PM", "Sunday: Closed"],
     gradient: "from-violet-500 to-purple-600",
+  },
+];
+
+const officeLocations = [
+  {
+    title: "Bangalore (Whitefield)",
+    lines: [
+      "Suite A 706",
+      "Cynosure White Spaces",
+      "Thirumalashettyhalli, Whitefield",
+      "Bengaluru, Karnataka 560066 / 560067",
+    ],
+  },
+  {
+    title: "Goa (Panvelim / Kadamba Plateau)",
+    lines: [
+      "C 111, Gera River of Joy",
+      "Kadamba Plateau, Panvelim",
+      "Near The Gera School",
+      "Goa 403001 / 403202",
+    ],
+  },
+  {
+    title: "Mumbai (Lower Parel)",
+    lines: [
+      "Suite 202",
+      "Kamala Mills Compound",
+      "Next to BMC Parking",
+      "Lower Parel, Mumbai, Maharashtra 400013",
+    ],
+  },
+  {
+    title: "Noida",
+    lines: [
+      "Suite A 2201",
+      "La Solara, Emenox Group Office Spaces",
+      "Noida, Uttar Pradesh 201301",
+    ],
+  },
+  {
+    title: "Chennai (WeWork Olympia)",
+    lines: [
+      "1st Floor, WeWork Olympia",
+      "Cyberspace, Alandur Road",
+      "SIDCO Industrial Estate, Guindy",
+      "Chennai, Tamil Nadu 600032",
+    ],
+  },
+  {
+    title: "Gurgaon (The Beehive)",
+    lines: [
+      "67-A, Block C",
+      "Sushant Lok Phase 1",
+      "Gurgaon, Haryana 122002",
+    ],
   },
 ];
 
@@ -139,7 +204,7 @@ export default function ContactPage() {
       {/* Info cards */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {contactInfo.map((info) => (
               <div
                 key={info.title}
@@ -162,11 +227,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form + Office Info */}
+      {/* Form + sidebar visuals */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            {/* Office info + images */}
+            {/* Images + careers */}
             <div className="order-2 lg:order-1 space-y-6">
               <div className="relative h-52 rounded-2xl overflow-hidden shadow-lg">
                 <Image
@@ -177,33 +242,31 @@ export default function ContactPage() {
                 />
               </div>
 
-              <div className="bg-white rounded-2xl border border-slate-200/80 p-7 shadow-sm">
-                <h2 className="text-lg font-bold text-slate-900 tracking-tight mb-5 flex items-center gap-2.5">
-                  <div className="w-9 h-9 bg-linear-to-br from-brand-600 to-brand-800 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-4 h-4 text-white" />
-                  </div>
-                  Our Office
-                </h2>
-                <div className="space-y-4 text-[14px] text-slate-600">
-                  <p>
-                    <span className="font-bold text-slate-800">
-                      Bluestreak Group India Pvt. Ltd.
-                    </span>
+              <div className="rounded-2xl bg-white border border-slate-200/80 p-6 shadow-sm space-y-3 text-[14px] text-slate-600">
+                <div className="flex items-start gap-2.5">
+                  <Phone className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                  <span>
+                    +91 95721 13880
                     <br />
-                    Mumbai, Maharashtra, India
-                  </p>
-                  <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-gold-500 shrink-0" />
-                    +91 98765 43210
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                    info@bluestreakindia.com
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Clock className="w-4 h-4 text-gold-500 shrink-0" />
-                    Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
-                  </div>
+                    +91 90499 53517
+                  </span>
+                </div>
+                <div className="flex items-start gap-2.5 pt-1 border-t border-slate-100">
+                  <Headset className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                  <span>
+                    <span className="block text-[12px] font-semibold text-slate-800 mb-0.5">
+                      Grievances &amp; Hotline
+                    </span>
+                    +91 95351 72871
+                  </span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Mail className="w-4 h-4 text-gold-500 shrink-0" />
+                  info@bluestreakindia.com
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Clock className="w-4 h-4 text-gold-500 shrink-0" />
+                  Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
                 </div>
               </div>
 
@@ -257,7 +320,7 @@ export default function ContactPage() {
                     <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" required />
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <Field label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
+                    <Field label="Phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="+91 95721 13880" />
                     <div>
                       <label className="block text-[13px] font-semibold text-slate-700 mb-2">
                         Subject
@@ -306,6 +369,43 @@ export default function ContactPage() {
                 </form>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Office locations — full width below form */}
+      <section className="py-20 md:py-24 bg-white border-t border-slate-200/80">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
+              Locations
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight flex items-center justify-center gap-2.5 flex-wrap">
+              <span className="inline-flex w-9 h-9 bg-linear-to-br from-brand-600 to-brand-800 rounded-lg items-center justify-center shrink-0">
+                <MapPin className="w-4 h-4 text-white" />
+              </span>
+              Our Offices
+            </h2>
+            <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
+              Visit us at any of our six locations across India.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            {officeLocations.map((loc) => (
+              <div
+                key={loc.title}
+                className="rounded-xl border border-slate-200/80 bg-slate-50/60 p-5 md:p-6"
+              >
+                <h3 className="text-[14px] font-bold text-slate-900 mb-2.5">
+                  {loc.title}
+                </h3>
+                <address className="not-italic text-[13px] text-slate-600 leading-relaxed space-y-0.5">
+                  {loc.lines.map((line, i) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </address>
+              </div>
+            ))}
           </div>
         </div>
       </section>
