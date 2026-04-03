@@ -17,6 +17,7 @@ import {
   ChevronRight,
   Sparkles,
   Factory,
+  HeartHandshake,
 } from "lucide-react";
 
 const FACTORY_HERO = "/assets/images/bl_factory_1.PNG";
@@ -276,6 +277,47 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bluestreak Foundation teaser ── */}
+      <section className="py-20 bg-linear-to-b from-emerald-50/80 to-white border-y border-slate-100">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="premium-card rounded-2xl border border-slate-200/80 bg-white overflow-hidden shadow-lg shadow-slate-200/30">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
+              <div className="relative md:col-span-2 min-h-[200px] md:min-h-0">
+                <Image
+                  src={SITE_IMG.charitableImpact(800, 560)}
+                  alt="Community support and social impact"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-white/90 hidden md:block" />
+              </div>
+              <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                <div className="inline-flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-widest mb-4">
+                  <HeartHandshake className="w-3.5 h-3.5" />
+                  Bluestreak Foundation
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                  Giving back to society
+                </h2>
+                <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
+                  We dedicate a portion of our earnings to social causes — from
+                  old-age homes and living standards to orphanages and charitable
+                  outreach across the communities we serve.
+                </p>
+                <Link
+                  href="/foundation"
+                  className="inline-flex items-center gap-2 mt-6 text-[14px] font-semibold text-brand-700 hover:text-brand-800 w-fit"
+                >
+                  Learn more about the Foundation
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Filled operations handover with sensitive details (optional local copy)
+docs/OPERATIONS_HANDOVER_SOURCE.private.md

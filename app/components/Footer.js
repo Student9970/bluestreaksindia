@@ -12,6 +12,7 @@ import {
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
+  { name: "Foundation", href: "/foundation" },
   { name: "Services", href: "/services" },
   { name: "Partnership", href: "/partnership" },
   { name: "Sell a Car", href: "/loans" },
@@ -61,6 +62,17 @@ export default function Footer() {
               A diversified business group delivering premium solutions across
               automobiles, lubricants, legal advisory, transport &amp; cargo,
               and financial services across India.
+            </p>
+            <p className="text-slate-500 text-[12.5px] leading-relaxed max-w-xs mt-3">
+              Through{" "}
+              <Link
+                href="/foundation"
+                className="text-gold-400/90 hover:text-gold-300 transition-colors"
+              >
+                Bluestreak Foundation
+              </Link>
+              , we channel part of our earnings into social causes and community
+              support.
             </p>
           </div>
 

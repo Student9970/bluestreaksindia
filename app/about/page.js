@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
@@ -15,6 +16,8 @@ import {
   CircleDollarSign,
   Landmark,
   Sparkles,
+  HeartHandshake,
+  ArrowRight,
 } from "lucide-react";
 
 const stats = [
@@ -261,6 +264,59 @@ export default function AboutPage() {
                   customer-first approach.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bluestreak Foundation */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-[11px] font-bold uppercase tracking-widest mb-4">
+                <HeartHandshake className="w-3.5 h-3.5" />
+                Social responsibility
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Bluestreak Foundation
+              </h2>
+              <div className="flex items-center gap-2.5 mt-4 mb-6">
+                <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
+                <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
+              </div>
+              <p className="text-[15px] text-slate-600 leading-[1.85] mb-5">
+                Our Foundation reflects our belief in giving back: part of what we
+                earn supports social causes, including old-age home care,
+                improvements in living standards, and gifts and donations for
+                orphanages.
+              </p>
+              <p className="text-[14px] text-slate-500 leading-relaxed mb-6">
+                This initiative is separate from{" "}
+                <Link
+                  href="/services#trustees"
+                  className="font-semibold text-brand-700 hover:text-brand-800 underline underline-offset-2"
+                >
+                  Bluestreak Trustees
+                </Link>
+                , which offers fiduciary trust services to clients.
+              </p>
+              <Link
+                href="/foundation"
+                className="inline-flex items-center gap-2 text-[14px] font-semibold text-brand-700 hover:text-brand-800"
+              >
+                Read more on the Foundation page
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-xl border border-slate-200/80">
+              <Image
+                src={SITE_IMG.charitableImpact(900, 500)}
+                alt="Bluestreak Foundation community support"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

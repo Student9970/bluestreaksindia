@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
 import {
@@ -251,6 +252,19 @@ export default function ServicesPage() {
                 <p className="text-slate-500 text-[15px] leading-relaxed">
                   {section.description}
                 </p>
+                {section.id === "trustees" ? (
+                  <p className="mt-4 text-slate-600 text-[14px] leading-relaxed">
+                    For corporate philanthropy and community programmes led by the
+                    group, see{" "}
+                    <Link
+                      href="/foundation"
+                      className="font-semibold text-brand-700 hover:text-brand-800 underline underline-offset-2"
+                    >
+                      Bluestreak Foundation
+                    </Link>
+                    .
+                  </p>
+                ) : null}
               </div>
               <div
                 className={`relative h-64 sm:h-72 rounded-2xl overflow-hidden shadow-xl ${idx % 2 === 1 ? "lg:order-1" : ""}`}

@@ -26,6 +26,7 @@ const navLinks = [
   { name: "Partnership", href: "/partnership" },
   { name: "Sell a Car", href: "/loans" },
   { name: "About", href: "/about" },
+  { name: "Foundation", href: "/foundation" },
 ];
 
 export default function Navbar() {
@@ -48,7 +49,7 @@ export default function Navbar() {
             />
             <div className="hidden sm:flex flex-col border-l border-slate-200 pl-3">
               <span className="text-[15px] font-bold text-slate-900 tracking-tight leading-tight">
-                Bluestreak Group
+                Bluestreak
               </span>
               <span className="text-[10px] font-medium text-slate-400 tracking-wider uppercase leading-tight">
                 India Pvt. Ltd.

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "handover:pdf": "node scripts/generate-handover-pdf.mjs",
+    "operations:pdf": "node scripts/generate-handover-pdf.mjs docs/OPERATIONS_HANDOVER_SOURCE.md docs/OPERATIONS_HANDOVER.pdf"
   },
   "dependencies": {
     "@uploadthing/react": "^7.3.3",
@@ -24,6 +26,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "pdfkit": "^0.18.0",
     "tailwindcss": "^4"
   }
 }
