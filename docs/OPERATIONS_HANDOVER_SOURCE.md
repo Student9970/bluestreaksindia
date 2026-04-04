@@ -71,7 +71,7 @@ Fill in dates and notes as applicable.
 | **Project / app name**    | bluestreakindia                                                                                                                             |
 | **Region**                | USA                                                                                                                                         |
 | **Production branch**     | `main`                                                                                                                                      |
-| **Environment variables** | Set in hosting UI only — names in technical handover (`MONGODB_URI`, `JWT_SECRET`, `UPLOADTHING_TOKEN`, etc.); **do not paste values here** |
+| **Environment variables** | Set in hosting UI only — names in technical handover (`MONGODB_URI`, `JWT_SECRET`, `CLOUDINARY_URL` or `CLOUDINARY_*`, etc.); **do not paste values here** |
 | **Who has deploy access** | MST Developers                                                                                                                              |
 
 ---
@@ -113,7 +113,7 @@ Fill in dates and notes as applicable.
 | Service                         | Account / project name | Owner / notes |
 | ------------------------------- | ---------------------- | ------------- |
 | **MongoDB Atlas** (or other DB) | bluestreaksindia       | MST           |
-| **Uploadthing** (image uploads) | bluestreakindia        | MST           |
+| **Cloudinary** (product images) | Dashboard → product folder `bluestreakindia/products` | MST           |
 
 _Connection strings and API tokens stay in the hosting environment only._
 
@@ -169,7 +169,7 @@ Only **Administrator** can open **Users** and create staff accounts.
 ### 9.4 Day-to-day tasks
 
 - **Dashboard** — Counts for areas your role can see.
-- **Products** (`/admin/products`) — Add / edit / delete catalogue items; images via Uploadthing (needs `UPLOADTHING_TOKEN` in production).
+- **Products** (`/admin/products`) — Add / edit / delete catalogue items; images via Cloudinary (`CLOUDINARY_URL` or `CLOUDINARY_CLOUD_NAME` + `CLOUDINARY_API_KEY` + `CLOUDINARY_API_SECRET` in production).
 - **Partnership** (`/admin/partnership`) — Partnership form submissions; search by company / name / email.
 - **Sell Car** (`/admin/finance`) — Leads from the sell-a-car flow.
 - **Contact** (`/admin/contact`) — Contact form messages.

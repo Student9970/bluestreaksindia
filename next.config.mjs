@@ -11,6 +11,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "sjee11wusd.ufs.sh" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
 };
