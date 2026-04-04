@@ -1,13 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { generateUploadDropzone } from "@uploadthing/react";
-import { Plus, Pencil, Trash2, X, Package, Search } from "lucide-react";
+import {
+  Plus,
+  Pencil,
+  Trash2,
+  X,
+  Package,
+  Search,
+  UploadCloud,
+} from "lucide-react";
 
-const UploadDropzone = generateUploadDropzone({
-  url: "/api/uploadthing",
-  fetch: (input, init) => fetch(input, { ...init, credentials: "include" }),
-});
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 
 const categories = [
   "Oils & Lubricants",
@@ -38,6 +42,40 @@ export default function AdminProducts() {
   const [formData, setFormData] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
   const [search, setSearch] = useState("");
+  const [imageUploading, setImageUploading] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState("");
+
+  const uploadProductImage = async (file) => {
+    if (!file) return;
+    if (!file.type.startsWith("image/")) {
+      setImageUploadError("Please choose an image file.");
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setImageUploadError("Image must be 4MB or smaller.");
+      return;
+    }
+    setImageUploadError("");
+    setImageUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append("file", file);
+      const res = await fetch("/api/admin/upload-image", {
+        method: "POST",
+        body: fd,
+        credentials: "include",
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Upload failed");
+      if (data.url) {
+        setFormData((prev) => ({ ...prev, image: data.url }));
+      }
+    } catch (e) {
+      setImageUploadError(e.message || "Upload failed");
+    } finally {
+      setImageUploading(false);
+    }
+  };
 
   const fetchProducts = () => {
     fetch("/api/admin/products")
@@ -393,6 +431,7 @@ export default function AdminProducts() {
                 </label>
                 <p className="text-[12px] text-slate-500 mb-2">
                   Drag and drop or click to choose a file (max 4MB, one image).
+                  Images are stored in Cloudinary.
                 </p>
                 {formData.image ? (
                   <div className="space-y-2 mb-3">
@@ -413,48 +452,51 @@ export default function AdminProducts() {
                     </button>
                   </div>
                 ) : null}
-                <UploadDropzone
-                  endpoint="productImage"
-                  config={{ mode: "direct" }}
-                  onClientUploadComplete={(res) => {
-                    console.log(
-                      "Full UT response:",
-                      JSON.stringify(res, null, 2),
-                    );
-
-                    // Try all known field names
-                    const url =
-                      res?.[0]?.ufsUrl ||
-                      res?.[0]?.url ||
-                      res?.[0]?.appUrl ||
-                      res?.[0]?.serverData?.url;
-
-                    console.log("Resolved URL:", url);
-
-                    if (url) {
-                      setFormData((prev) => ({ ...prev, image: url }));
-                    } else {
-                      alert(
-                        "Upload succeeded but no URL returned — check console",
-                      );
-                    }
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
                   }}
-                  onUploadError={(err) => {
-                    console.error(err);
-                    alert(err.message || "Upload failed");
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const f = e.dataTransfer.files?.[0];
+                    if (f) uploadProductImage(f);
                   }}
-                  appearance={{
-                    container:
-                      "border border-dashed border-slate-300 rounded-lg bg-slate-50/80 hover:bg-slate-50 transition-colors p-4",
-                    uploadIcon: "text-slate-400",
-                    label: "text-[13px] text-slate-600 cursor-pointer",
-                    allowedContent: "text-[11px] text-slate-400",
-                    button: ({ files, isUploading }) =>
-                      !isUploading && files.length === 0
-                        ? "hidden"
-                        : "bg-brand-600 hover:bg-brand-700 text-white text-[12px] font-semibold rounded-md px-3 py-1.5 border-0 shadow-sm cursor-pointer",
-                  }}
-                />
+                  className="border border-dashed border-slate-300 rounded-lg bg-slate-50/80 hover:bg-slate-50 transition-colors p-4 text-center"
+                >
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="sr-only"
+                    id="product-image-file"
+                    disabled={imageUploading}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) uploadProductImage(f);
+                      e.target.value = "";
+                    }}
+                  />
+                  <label
+                    htmlFor="product-image-file"
+                    className={`flex flex-col items-center gap-2 ${imageUploading ? "pointer-events-none opacity-70" : "cursor-pointer"}`}
+                  >
+                    <UploadCloud className="w-10 h-10 text-slate-400" />
+                    <span className="text-[13px] text-slate-600">
+                      {imageUploading
+                        ? "Uploading…"
+                        : "Choose a file or drag and drop"}
+                    </span>
+                    <span className="text-[11px] text-slate-400">
+                      JPEG, PNG, WebP, GIF up to 4MB
+                    </span>
+                  </label>
+                </div>
+                {imageUploadError ? (
+                  <p className="text-[12px] text-red-600 mt-2">
+                    {imageUploadError}
+                  </p>
+                ) : null}
                 <label className="block text-[12px] font-medium text-slate-500 mt-3 mb-1">
                   Or paste image URL
                 </label>
