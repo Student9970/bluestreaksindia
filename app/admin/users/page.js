@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Users, Plus, Trash2, X, Search } from "lucide-react";
+import { Users, Plus, Trash2, X, Search, Edit2 } from "lucide-react";
 import FormMessageDialog from "../../components/FormMessageDialog";
 import { PERSONAS } from "@/utils/personas";
 
@@ -23,6 +23,7 @@ export default function AdminUsers() {
   const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [feedback, setFeedback] = useState(null);
+  const [editingUserId, setEditingUserId] = useState(null);
 
   const fetchUsers = () => {
     fetch("/api/admin/users")
@@ -44,8 +45,13 @@ export default function AdminUsers() {
     setSaving(true);
 
     try {
-      const res = await fetch("/api/admin/users", {
-        method: "POST",
+      const url = editingUserId
+        ? `/api/admin/users/${editingUserId}`
+        : "/api/admin/users";
+      const method = editingUserId ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
@@ -55,20 +61,35 @@ export default function AdminUsers() {
       if (res.ok) {
         setShowForm(false);
         setFormData(emptyForm);
+        setEditingUserId(null);
         fetchUsers();
         setFeedback({
           variant: "success",
-          title: "User created",
-          message: "The new admin user has been added successfully.",
+          title: editingUserId ? "User updated" : "User created",
+          message: editingUserId
+            ? "User details have been updated successfully."
+            : "The new admin user has been added successfully.",
         });
       } else {
-        setError(data.error || "Failed to create user");
+        setError(data.error || "Failed to save user");
       }
     } catch {
       setError("Something went wrong");
     } finally {
       setSaving(false);
     }
+  };
+
+  const handleEdit = (user) => {
+    setFormData({
+      name: user.name,
+      email: user.email,
+      password: "",
+      persona: user.persona,
+    });
+    setEditingUserId(user._id);
+    setError("");
+    setShowForm(true);
   };
 
   const handleDelete = async (id, name) => {
@@ -92,7 +113,7 @@ export default function AdminUsers() {
     (u) =>
       u.name?.toLowerCase().includes(search.toLowerCase()) ||
       u.email?.toLowerCase().includes(search.toLowerCase()) ||
-      u.persona?.toLowerCase().includes(search.toLowerCase())
+      u.persona?.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -118,6 +139,7 @@ export default function AdminUsers() {
           onClick={() => {
             setFormData(emptyForm);
             setError("");
+            setEditingUserId(null);
             setShowForm(true);
           }}
           className="flex items-center gap-2 px-4 py-2.5 bg-brand-600 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-700 transition-colors shadow-sm shadow-brand-600/25 self-start"
@@ -218,13 +240,22 @@ export default function AdminUsers() {
                       })}
                     </td>
                     <td className="px-5 py-3.5 text-right">
-                      <button
-                        onClick={() => handleDelete(user._id, user.name)}
-                        className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                        title="Remove user"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => handleEdit(user)}
+                          className="p-2 text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-lg transition-colors"
+                          title="Edit user"
+                        >
+                          <Edit2 className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(user._id, user.name)}
+                          className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                          title="Remove user"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
@@ -234,16 +265,21 @@ export default function AdminUsers() {
         </div>
       </div>
 
-      {/* Add User Modal */}
+      {/* Add/Edit User Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-5 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900">
-                Add New User
+                {editingUserId ? "Edit User" : "Add New User"}
               </h2>
               <button
-                onClick={() => setShowForm(false)}
+                onClick={() => {
+                  setShowForm(false);
+                  setEditingUserId(null);
+                  setFormData(emptyForm);
+                  setError("");
+                }}
                 className="p-1.5 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -289,7 +325,13 @@ export default function AdminUsers() {
               </div>
               <div>
                 <label className="block text-[13px] font-medium text-slate-700 mb-1.5">
-                  Password *
+                  Password {!editingUserId && "*"}
+                  {editingUserId && (
+                    <span className="text-slate-500 text-[12px] font-normal">
+                      {" "}
+                      (leave empty to keep current password)
+                    </span>
+                  )}
                 </label>
                 <input
                   type="password"
@@ -297,9 +339,13 @@ export default function AdminUsers() {
                   onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
-                  required
+                  required={!editingUserId}
                   minLength={6}
-                  placeholder="Minimum 6 characters"
+                  placeholder={
+                    editingUserId
+                      ? "Leave empty to keep current password"
+                      : "Minimum 6 characters"
+                  }
                   className="w-full h-10 px-3.5 border border-slate-200 rounded-lg text-[13px] text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                 />
               </div>
@@ -326,7 +372,12 @@ export default function AdminUsers() {
               <div className="flex gap-3 pt-2">
                 <button
                   type="button"
-                  onClick={() => setShowForm(false)}
+                  onClick={() => {
+                    setShowForm(false);
+                    setEditingUserId(null);
+                    setFormData(emptyForm);
+                    setError("");
+                  }}
                   className="flex-1 h-10 border border-slate-200 text-slate-700 text-[13px] font-semibold rounded-lg hover:bg-slate-50 transition-colors"
                 >
                   Cancel
@@ -336,7 +387,11 @@ export default function AdminUsers() {
                   disabled={saving}
                   className="flex-1 h-10 bg-brand-600 text-white text-[13px] font-semibold rounded-lg hover:bg-brand-700 transition-colors disabled:opacity-60"
                 >
-                  {saving ? "Creating..." : "Create User"}
+                  {saving
+                    ? "Saving..."
+                    : editingUserId
+                      ? "Update User"
+                      : "Create User"}
                 </button>
               </div>
             </form>

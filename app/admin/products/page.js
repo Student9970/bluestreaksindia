@@ -20,14 +20,14 @@ const categories = [
 ];
 
 const emptyForm = {
-  name: "",
-  spec: "",
-  category: "",
-  tags: "",
-  desc: "",
+  name: "Test",
+  spec: "spec test",
+  category: "Coolants",
+  tags: "tag1",
+  desc: "just a small desc",
   image: "",
-  badge: "",
-  price: "",
+  badge: "badge1",
+  price: "599",
 };
 
 export default function AdminProducts() {
@@ -417,9 +417,26 @@ export default function AdminProducts() {
                   endpoint="productImage"
                   config={{ mode: "direct" }}
                   onClientUploadComplete={(res) => {
-                    const url = res?.[0]?.ufsUrl || res?.[0]?.url;
+                    console.log(
+                      "Full UT response:",
+                      JSON.stringify(res, null, 2),
+                    );
+
+                    // Try all known field names
+                    const url =
+                      res?.[0]?.ufsUrl ||
+                      res?.[0]?.url ||
+                      res?.[0]?.appUrl ||
+                      res?.[0]?.serverData?.url;
+
+                    console.log("Resolved URL:", url);
+
                     if (url) {
                       setFormData((prev) => ({ ...prev, image: url }));
+                    } else {
+                      alert(
+                        "Upload succeeded but no URL returned — check console",
+                      );
                     }
                   }}
                   onUploadError={(err) => {
