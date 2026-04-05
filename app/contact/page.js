@@ -38,7 +38,7 @@ const contactInfo = [
     icon: MapPin,
     title: "Visit Us",
     lines: [
-      "Six offices across India",
+      "Our offices across India",
       "Bengaluru, Goa, Mumbai, Noida, Chennai, Gurgaon",
     ],
     gradient: "from-amber-500 to-orange-600",
