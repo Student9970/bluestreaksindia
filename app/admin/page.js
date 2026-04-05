@@ -9,6 +9,7 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 const statCards = [
   {
@@ -66,7 +67,7 @@ export default function AdminDashboard() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
           <TrendingUp className="w-6 h-6 text-brand-600" />
-          Dashboard
+          {toHeadingCase("Dashboard")}
         </h1>
         <p className="text-[14px] text-slate-500 mt-1">
           Overview of your business data

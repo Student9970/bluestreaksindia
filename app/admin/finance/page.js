@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Car, Search } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 export default function AdminFinance() {
   const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ export default function AdminFinance() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
           <Car className="w-6 h-6 text-brand-600" />
-          Sell Car Enquiries
+          {toHeadingCase("Sell car enquiries")}
         </h1>
         <p className="text-[13px] text-slate-500 mt-1">
           View all sell-a-car submissions

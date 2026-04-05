@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import { Sparkles, HeartHandshake, ArrowRight } from "lucide-react";
 
 export const metadata = {
@@ -45,7 +46,7 @@ export default function FoundationPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Bluestreak Foundation
+            {toHeadingCase("Bluestreak Foundation")}
           </h1>
           <p className="mt-4 text-brand-200/90 text-[16px] max-w-2xl leading-relaxed">
             Community and philanthropy are part of how we operate — not separate
@@ -69,7 +70,7 @@ export default function FoundationPage() {
                 </p>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
-                Giving back, with purpose
+                {toHeadingCase("Giving back, with purpose")}
               </h2>
               <div className="flex items-center gap-2.5 mb-8">
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -124,7 +125,7 @@ export default function FoundationPage() {
         badgeLabel="Learn more"
         title={
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Explore the wider Bluestreak Group
+            {toHeadingCase("Explore the wider Bluestreak Group")}
           </h2>
         }
         body={

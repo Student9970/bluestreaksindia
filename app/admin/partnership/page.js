@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Handshake, Search } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 export default function AdminPartnership() {
   const [data, setData] = useState([]);
@@ -30,7 +31,7 @@ export default function AdminPartnership() {
       <div className="mb-6">
         <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
           <Handshake className="w-6 h-6 text-brand-600" />
-          Partnership Enquiries
+          {toHeadingCase("Partnership enquiries")}
         </h1>
         <p className="text-[13px] text-slate-500 mt-1">
           View all partnership applications

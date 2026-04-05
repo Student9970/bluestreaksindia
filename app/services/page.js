@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import {
   Scale,
   Droplets,
@@ -183,7 +184,7 @@ export default function ServicesPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight shadow-md">
-            Our Services
+            {toHeadingCase("Our services")}
           </h1>
           <p className="mt-4 text-brand-200 text-shadow-md text-[16px] max-w-xl leading-relaxed">
             Legal expertise, judiciary trust management, and premium lubricant
@@ -242,7 +243,7 @@ export default function ServicesPage() {
                       : "Manufacturing"}
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                  {section.title}
+                  {toHeadingCase(section.title)}
                 </h2>
                 <div className="flex items-center gap-2.5 mt-4 mb-6">
                   <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -304,7 +305,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="p-5">
                     <h3 className="text-[14px] font-bold text-slate-900 mb-1.5">
-                      {feat.name}
+                      {toHeadingCase(feat.name)}
                     </h3>
                     <p className="text-[13px] text-slate-500 leading-relaxed">
                       {feat.desc}
@@ -324,7 +325,7 @@ export default function ServicesPage() {
         badgeLabel="Get In Touch"
         title={
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Ready to Work with Us?
+            {toHeadingCase("Ready to work with us?")}
           </h2>
         }
         body={

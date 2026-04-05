@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Shield, Eye, EyeOff } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -45,7 +46,9 @@ export default function AdminLoginPage() {
           <div className="w-14 h-14 bg-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-brand-600/25">
             <Shield className="w-7 h-7 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white">Admin Panel</h1>
+          <h1 className="text-2xl font-bold text-white">
+            {toHeadingCase("Admin panel")}
+          </h1>
           <p className="text-slate-400 text-[14px] mt-1">
             Bluestreak India
           </p>
@@ -53,7 +56,7 @@ export default function AdminLoginPage() {
 
         <div className="bg-white rounded-2xl shadow-xl p-7 sm:p-8">
           <h2 className="text-lg font-bold text-slate-900 mb-1">
-            Welcome back
+            {toHeadingCase("Welcome back")}
           </h2>
           <p className="text-[13px] text-slate-500 mb-6">
             Sign in to access the admin dashboard

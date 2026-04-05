@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import {
   Target,
   Eye,
@@ -101,7 +102,7 @@ export default function AboutPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            About Us
+            {toHeadingCase("About us")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
             Discover the story behind Bluestreak Group and our commitment to
@@ -120,7 +121,7 @@ export default function AboutPage() {
                 Our Story
               </p>
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-3">
-                Building Excellence Since Day One
+                {toHeadingCase("Building excellence since day one")}
               </h2>
               <div className="flex items-center gap-2.5 mb-8">
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -202,7 +203,7 @@ export default function AboutPage() {
               What Drives Us
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-              Mission &amp; Vision
+              {toHeadingCase("Mission & Vision")}
             </h2>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -227,7 +228,7 @@ export default function AboutPage() {
                     <Target className="w-5 h-5 text-white" />
                   </div>
                   <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-                    Our Mission
+                    {toHeadingCase("Our mission")}
                   </h2>
                 </div>
                 <p className="text-[15px] text-slate-600 leading-[1.85]">
@@ -254,7 +255,7 @@ export default function AboutPage() {
                     <Eye className="w-5 h-5 text-white" />
                   </div>
                   <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-                    Our Vision
+                    {toHeadingCase("Our vision")}
                   </h2>
                 </div>
                 <p className="text-[15px] text-slate-600 leading-[1.85]">
@@ -279,7 +280,7 @@ export default function AboutPage() {
                 Social responsibility
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Bluestreak Foundation
+                {toHeadingCase("Bluestreak Foundation")}
               </h2>
               <div className="flex items-center gap-2.5 mt-4 mb-6">
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -346,7 +347,7 @@ export default function AboutPage() {
               Our Expertise
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-              Business Verticals
+              {toHeadingCase("Business verticals")}
             </h2>
             <div className="flex items-center gap-2.5 mt-4">
               <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -378,7 +379,7 @@ export default function AboutPage() {
                 </div>
                 <div className="p-5">
                   <h3 className="text-[15px] font-bold text-slate-900 mb-1">
-                    {v.name}
+                    {toHeadingCase(v.name)}
                   </h3>
                   <p className="text-[13px] text-slate-500 leading-relaxed">
                     {v.desc}
@@ -396,7 +397,7 @@ export default function AboutPage() {
         badgeLabel="Our Presence"
         title={
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Across India, Close to You
+            {toHeadingCase("Across India, close to you")}
           </h2>
         }
         body={

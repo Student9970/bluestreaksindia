@@ -8,6 +8,7 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -78,8 +79,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="lg:col-span-2">
-            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
-              Company
+            <h3 className="text-[11.5px] font-semibold text-gold-400 tracking-wider mb-4">
+              {toHeadingCase("Company")}
             </h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
@@ -97,8 +98,8 @@ export default function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
-              Our Businesses
+            <h3 className="text-[11.5px] font-semibold text-gold-400 tracking-wider mb-4">
+              {toHeadingCase("Our businesses")}
             </h3>
             <ul className="space-y-2.5">
               {services.map((link) => (
@@ -116,8 +117,8 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="lg:col-span-3">
-            <h3 className="text-[11.5px] font-semibold text-gold-400 uppercase tracking-wider mb-4">
-              Contact
+            <h3 className="text-[11.5px] font-semibold text-gold-400 tracking-wider mb-4">
+              {toHeadingCase("Contact")}
             </h3>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-2.5">

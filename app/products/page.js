@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { SITE_IMG, LUBRICANT_GALLERY } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import { Package, Sparkles } from "lucide-react";
 
 const categories = [
@@ -68,7 +69,7 @@ export default function ProductsPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Products
+            {toHeadingCase("Products")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
             Premium oils, lubricants, coolants, greases, and industrial products
@@ -86,7 +87,7 @@ export default function ProductsPage() {
               Authentic Bluestreak
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Facilities &amp; product photography
+              {toHeadingCase("Facilities & product photography")}
             </h2>
             <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
               Real imagery from our plant, showroom, and lubricant range.
@@ -176,7 +177,7 @@ export default function ProductsPage() {
                         </span>
                       </div>
                       <h3 className="text-[16px] font-bold text-slate-900 mb-1">
-                        {product.name}
+                        {toHeadingCase(product.name)}
                       </h3>
                       <p className="text-[12px] text-slate-400 mb-2.5 font-medium">
                         {product.spec}

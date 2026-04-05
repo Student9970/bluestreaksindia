@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CONTACT_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import FormMessageDialog from "../components/FormMessageDialog";
 import {
   Phone,
@@ -191,7 +192,7 @@ export default function ContactPage() {
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Get in Touch with Us
+            {toHeadingCase("Get in touch with us")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
             Have questions or need assistance? Reach out and our team will
@@ -214,7 +215,7 @@ export default function ContactPage() {
                   <info.icon className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-[15px] font-bold text-slate-900 mb-2">
-                  {info.title}
+                  {toHeadingCase(info.title)}
                 </h3>
                 {info.lines.map((line, i) => (
                   <p key={i} className="text-[13px] text-slate-500">
@@ -291,7 +292,7 @@ export default function ContactPage() {
 
               <div className="rounded-2xl bg-linear-to-br from-brand-50 to-brand-100/50 border border-brand-100 p-6">
                 <h3 className="text-[15px] font-bold text-brand-900 mb-2">
-                  Careers at Bluestreak Group
+                  {toHeadingCase("Careers at Bluestreak Group")}
                 </h3>
                 <p className="text-[13px] text-brand-800/70 mb-3">
                   Interested in joining our team? Send your resume at:
@@ -311,7 +312,7 @@ export default function ContactPage() {
                 Send a Message
               </p>
               <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-5">
-                Contact Form
+                {toHeadingCase("Contact form")}
               </h2>
               <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 p-7 sm:p-9">
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -384,10 +385,10 @@ export default function ContactPage() {
               <span className="inline-flex w-9 h-9 bg-linear-to-br from-brand-600 to-brand-800 rounded-lg items-center justify-center shrink-0">
                 <MapPin className="w-4 h-4 text-white" />
               </span>
-              Our Offices
+              {toHeadingCase("Our offices")}
             </h2>
             <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
-              Visit us at any of our six locations across India.
+              Visit us at any of our locations across India.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -397,7 +398,7 @@ export default function ContactPage() {
                 className="rounded-xl border border-slate-200/80 bg-slate-50/60 p-5 md:p-6"
               >
                 <h3 className="text-[14px] font-bold text-slate-900 mb-2.5">
-                  {loc.title}
+                  {toHeadingCase(loc.title)}
                 </h3>
                 <address className="not-italic text-[13px] text-slate-600 leading-relaxed space-y-0.5">
                   {loc.lines.map((line, i) => (
@@ -434,7 +435,7 @@ export default function ContactPage() {
               Common Questions
             </p>
             <h2 className="text-3xl sm:text-[2rem] font-bold text-slate-900 tracking-tight">
-              Frequently Asked Questions
+              {toHeadingCase("Frequently asked questions")}
             </h2>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -478,7 +479,7 @@ export default function ContactPage() {
                 className="premium-card bg-white rounded-2xl border border-slate-200/80 p-7 hover:shadow-xl hover:shadow-slate-200/40 hover:-translate-y-0.5 transition-all duration-300"
               >
                 <h3 className="text-[15px] font-bold text-slate-900 mb-2.5">
-                  {faq.q}
+                  {toHeadingCase(faq.q)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
                   {faq.a}

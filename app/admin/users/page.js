@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Users, Plus, Trash2, X, Search, Edit2 } from "lucide-react";
 import FormMessageDialog from "../../components/FormMessageDialog";
 import { PERSONAS } from "@/utils/personas";
+import { toHeadingCase } from "@/lib/headingCase";
 
 const personaOptions = Object.entries(PERSONAS);
 
@@ -129,7 +130,7 @@ export default function AdminUsers() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
             <Users className="w-6 h-6 text-brand-600" />
-            User Management
+            {toHeadingCase("User management")}
           </h1>
           <p className="text-[13px] text-slate-500 mt-1">
             Add or remove admin panel users
@@ -271,7 +272,9 @@ export default function AdminUsers() {
           <div className="bg-white rounded-xl shadow-xl w-full max-w-md">
             <div className="flex items-center justify-between p-5 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900">
-                {editingUserId ? "Edit User" : "Add New User"}
+                {editingUserId
+                  ? toHeadingCase("Edit user")
+                  : toHeadingCase("Add new user")}
               </h2>
               <button
                 onClick={() => {

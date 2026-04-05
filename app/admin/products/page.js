@@ -10,6 +10,7 @@ import {
   Search,
   UploadCloud,
 } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 
@@ -163,7 +164,7 @@ export default function AdminProducts() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
             <Package className="w-6 h-6 text-brand-600" />
-            Products
+            {toHeadingCase("Products")}
           </h1>
           <p className="text-[13px] text-slate-500 mt-1">
             Manage your product catalog
@@ -320,7 +321,9 @@ export default function AdminProducts() {
           <div className="bg-white rounded-xl shadow-xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-slate-100">
               <h2 className="text-lg font-bold text-slate-900">
-                {editing ? "Edit Product" : "Add New Product"}
+                {editing
+                  ? toHeadingCase("Edit product")
+                  : toHeadingCase("Add new product")}
               </h2>
               <button
                 onClick={() => setShowForm(false)}

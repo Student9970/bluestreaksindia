@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "./components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import {
   ArrowRight,
   Award,
@@ -158,7 +159,7 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight uppercase">
+          <h1 className="animate-fade-in-up-delay-1 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight">
             <span className="block text-white [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_0_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.85),0_4px_28px_rgba(0,0,0,0.55)]">
               Bluestreak
             </span>
@@ -211,7 +212,7 @@ export default function Home() {
               What We Do
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Our Business Divisions
+              {toHeadingCase("Our business divisions")}
             </h2>
             <div className="mx-auto mt-4 flex items-center justify-center gap-2">
               <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
@@ -249,7 +250,7 @@ export default function Home() {
                       </span>
                     </div>
                     <h3 className="text-[18px] font-bold text-white leading-snug">
-                      {div.name}
+                      {toHeadingCase(div.name)}
                     </h3>
                   </div>
                 </div>
@@ -302,7 +303,7 @@ export default function Home() {
                   Bluestreak Foundation
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                  Giving back to society
+                  {toHeadingCase("Giving back to society")}
                 </h2>
                 <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
                   We dedicate a portion of our earnings to social causes — from
@@ -330,7 +331,7 @@ export default function Home() {
               Our Promise
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Why Choose Bluestreak Group?
+              {toHeadingCase("Why choose Bluestreak Group?")}
             </h2>
             <div className="mx-auto mt-4 flex items-center justify-center gap-2">
               <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
@@ -351,7 +352,7 @@ export default function Home() {
                   <item.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-[16px] font-bold text-slate-900 mb-2.5">
-                  {item.name}
+                  {toHeadingCase(item.name)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
                   {item.desc}
@@ -381,7 +382,7 @@ export default function Home() {
                 Infrastructure
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-                Built for quality at scale
+                {toHeadingCase("Built for quality at scale")}
               </h2>
               <div className="mt-4 flex items-center gap-2">
                 <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
@@ -417,8 +418,8 @@ export default function Home() {
         badgeLabel="Partner With Us"
         title={
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Ready to Build Something
-            <span className="gold-shimmer"> Great?</span>
+            Ready to Build Something{" "}
+            <span className="gold-shimmer">Great?</span>
           </h2>
         }
         body={

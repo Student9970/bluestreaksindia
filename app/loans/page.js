@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import {
   Car,
   ShieldCheck,
@@ -120,7 +121,7 @@ export default function SellCarPage() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Sell Your Car with Confidence
+              {toHeadingCase("Sell your car with confidence")}
             </h1>
             <p className="mt-4 text-brand-200/70 text-[16px] leading-relaxed">
               Get the best value for your car. Quick valuation, transparent
@@ -139,7 +140,7 @@ export default function SellCarPage() {
               Why Choose Us
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-              Why Sell Your Car with Bluestreak Group?
+              {toHeadingCase("Why sell your car with Bluestreak Group?")}
             </h2>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -209,7 +210,7 @@ export default function SellCarPage() {
                   Submit Your Car Details
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                  Sell a Car — Enquiry Form
+                  {toHeadingCase("Sell a car — enquiry form")}
                 </h2>
                 <div className="flex items-center gap-2.5 mt-4 lg:justify-start justify-center">
                   <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />

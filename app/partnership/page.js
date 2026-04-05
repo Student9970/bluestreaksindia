@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import FormMessageDialog from "../components/FormMessageDialog";
 import { SITE_IMG } from "@/lib/site-images";
+import { toHeadingCase } from "@/lib/headingCase";
 import {
   TrendingUp,
   ShieldCheck,
@@ -167,7 +168,7 @@ export default function PartnershipPage() {
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-              Become Our Partner
+              {toHeadingCase("Become our partner")}
             </h1>
             <p className="mt-4 text-brand-200/70 text-[16px] leading-relaxed">
               Join us for a profitable partnership. Expand your business with
@@ -187,7 +188,7 @@ export default function PartnershipPage() {
                 Partnership Benefits
               </p>
               <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-                Why Partner with Us
+                {toHeadingCase("Why partner with us")}
               </h2>
               <div className="flex items-center gap-2.5 mt-4 mb-6">
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -222,7 +223,7 @@ export default function PartnershipPage() {
                 </div>
                 <div>
                   <h3 className="text-[14px] font-bold text-slate-900 mb-1">
-                    {item.name}
+                    {toHeadingCase(item.name)}
                   </h3>
                   <p className="text-[13px] text-slate-500 leading-relaxed">
                     {item.desc}
@@ -258,7 +259,7 @@ export default function PartnershipPage() {
               Get Started
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
-              How to Partner With Us
+              {toHeadingCase("How to partner with us")}
             </h2>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               <div className="h-px w-[50px] bg-linear-to-r from-gold-400 to-gold-200" />
@@ -283,7 +284,7 @@ export default function PartnershipPage() {
                   <item.icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-[15px] font-bold text-slate-900 mb-2">
-                  {item.title}
+                  {toHeadingCase(item.title)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
                   {item.desc}
@@ -313,7 +314,7 @@ export default function PartnershipPage() {
                 What You Get
               </p>
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-8">
-                Benefits We Offer
+                {toHeadingCase("Benefits we offer")}
               </h2>
 
               <ul className="space-y-4">
@@ -331,7 +332,7 @@ export default function PartnershipPage() {
 
               <div className="mt-10 rounded-2xl bg-linear-to-br from-brand-50 to-brand-100/50 border border-brand-100 p-6">
                 <h3 className="text-[15px] font-bold text-brand-900 mb-3">
-                  Immediate Enquiries
+                  {toHeadingCase("Immediate enquiries")}
                 </h3>
                 <div className="space-y-2.5 text-[13px] text-brand-800/70">
                   <p className="flex items-start gap-2.5">
@@ -363,7 +364,7 @@ export default function PartnershipPage() {
             <div className="lg:col-span-3">
               <div className="bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 p-7 sm:p-9">
                 <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-7">
-                  Partnership Enquiry Form
+                  {toHeadingCase("Partnership enquiry form")}
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

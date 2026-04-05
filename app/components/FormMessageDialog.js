@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
+import { toHeadingCase } from "@/lib/headingCase";
 
 /**
  * Modal confirmation after form submit (replaces browser alert).
@@ -26,8 +27,11 @@ export default function FormMessageDialog({
   if (!open) return null;
 
   const isError = variant === "error";
-  const heading =
-    title ?? (isError ? "Something went wrong" : "Thank you");
+  const heading = title
+    ? toHeadingCase(title)
+    : isError
+      ? toHeadingCase("Something went wrong")
+      : toHeadingCase("Thank you");
 
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
