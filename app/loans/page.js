@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import {
   Car,
   ShieldCheck,
@@ -124,8 +124,9 @@ export default function SellCarPage() {
               {toHeadingCase("Sell your car with confidence")}
             </h1>
             <p className="mt-4 text-brand-200/70 text-[16px] leading-relaxed">
-              Get the best value for your car. Quick valuation, transparent
-              process, and hassle-free sale with Bluestreak Group.
+              {toParagraphCase(
+                "Get the best value for your car. Quick valuation, transparent process, and hassle-free sale with Bluestreak Group.",
+              )}
             </p>
           </div>
         </div>
@@ -136,8 +137,8 @@ export default function SellCarPage() {
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-14">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Why Choose Us
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toHeadingCase("Why Choose Us")}
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Why sell your car with Bluestreak Group?")}
@@ -172,7 +173,7 @@ export default function SellCarPage() {
                 </div>
                 <div className="p-5">
                   <p className="text-[13px] text-slate-500 leading-relaxed">
-                    {item.desc}
+                    {toParagraphCase(item.desc)}
                   </p>
                 </div>
               </div>
@@ -206,8 +207,8 @@ export default function SellCarPage() {
 
             <div className="lg:col-span-3">
               <div className="text-center lg:text-left mb-8">
-                <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                  Submit Your Car Details
+                <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+                  {toHeadingCase("Submit Your Car Details")}
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   {toHeadingCase("Sell a car — enquiry form")}
@@ -218,7 +219,9 @@ export default function SellCarPage() {
                   <div className="h-px w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
                 </div>
                 <p className="mt-5 text-[15px] text-slate-500">
-                  Fill in your and your car&apos;s details. We&apos;ll get back with a valuation and next steps.
+                  {toParagraphCase(
+                    "Fill in your and your car's details. We'll get back with a valuation and next steps.",
+                  )}
                 </p>
               </div>
 
@@ -232,7 +235,9 @@ export default function SellCarPage() {
                     <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="you@email.com" />
                   </div>
                   <div className="border-t border-slate-100 pt-5 mt-2">
-                    <p className="text-[12px] font-bold text-slate-500 uppercase tracking-wider mb-4">Car Details</p>
+                    <p className="text-[12px] font-bold text-slate-500 tracking-wider mb-4">
+                      {toHeadingCase("Car Details")}
+                    </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <Field label="Make *" name="carMake" value={formData.carMake} onChange={handleChange} placeholder="e.g. Maruti, Hyundai" required />
                       <Field label="Model *" name="carModel" value={formData.carModel} onChange={handleChange} placeholder="e.g. Swift, i20" required />

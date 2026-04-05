@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CONTACT_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import FormMessageDialog from "../components/FormMessageDialog";
 import {
   Phone,
@@ -187,16 +187,17 @@ export default function ContactPage() {
         <div className="relative max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-400/30 bg-gold-400/10 mb-6">
             <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-            <span className="text-[12px] font-semibold text-gold-300 uppercase tracking-widest">
-              Reach Out
+            <span className="text-[12px] font-semibold text-gold-300 tracking-widest">
+              {toHeadingCase("Reach out")}
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
             {toHeadingCase("Get in touch with us")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
-            Have questions or need assistance? Reach out and our team will
-            respond promptly.
+            {toParagraphCase(
+              "Have questions or need assistance? Reach out and our team will respond promptly.",
+            )}
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -256,7 +257,7 @@ export default function ContactPage() {
                   <Headset className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
                   <span>
                     <span className="block text-[12px] font-semibold text-slate-800 mb-0.5">
-                      Grievances &amp; Hotline
+                      {toHeadingCase("Grievances & Hotline")}
                     </span>
                     +91 95351 72871
                   </span>
@@ -267,7 +268,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Clock className="w-4 h-4 text-gold-500 shrink-0" />
-                  Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
+                  {toParagraphCase("Mon – Sat: 9:00 AM – 6:00 PM")}
                 </div>
               </div>
 
@@ -295,7 +296,9 @@ export default function ContactPage() {
                   {toHeadingCase("Careers at Bluestreak Group")}
                 </h3>
                 <p className="text-[13px] text-brand-800/70 mb-3">
-                  Interested in joining our team? Send your resume at:
+                  {toParagraphCase(
+                    "Interested in joining our team? Send your resume at:",
+                  )}
                 </p>
                 <a
                   href="mailto:careers@bluestreakindia.com"
@@ -308,8 +311,8 @@ export default function ContactPage() {
 
             {/* Form */}
             <div className="order-1 lg:order-2">
-              <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                Send a Message
+              <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+                {toParagraphCase("Send a message")}
               </p>
               <h2 className="text-xl font-bold text-slate-900 tracking-tight mb-5">
                 {toHeadingCase("Contact form")}
@@ -378,8 +381,8 @@ export default function ContactPage() {
       <section className="py-20 md:py-24 bg-white border-t border-slate-200/80">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Locations
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toParagraphCase("Locations")}
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight flex items-center justify-center gap-2.5 flex-wrap">
               <span className="inline-flex w-9 h-9 bg-linear-to-br from-brand-600 to-brand-800 rounded-lg items-center justify-center shrink-0">
@@ -388,7 +391,9 @@ export default function ContactPage() {
               {toHeadingCase("Our offices")}
             </h2>
             <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
-              Visit us at any of our locations across India.
+              {toParagraphCase(
+                "Visit us at any of our locations across India.",
+              )}
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -402,7 +407,7 @@ export default function ContactPage() {
                 </h3>
                 <address className="not-italic text-[13px] text-slate-600 leading-relaxed space-y-0.5">
                   {loc.lines.map((line, i) => (
-                    <p key={i}>{line}</p>
+                    <p key={i}>{toParagraphCase(line)}</p>
                   ))}
                 </address>
               </div>
@@ -422,7 +427,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-brand-950/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-2xl md:text-3xl font-bold tracking-tight text-center px-6">
-            We&apos;re Here to Help You Succeed
+            {toParagraphCase("We're here to help you succeed")}
           </p>
         </div>
       </section>
@@ -431,8 +436,8 @@ export default function ContactPage() {
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-14">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Common Questions
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toParagraphCase("Common questions")}
             </p>
             <h2 className="text-3xl sm:text-[2rem] font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Frequently asked questions")}
@@ -443,7 +448,9 @@ export default function ContactPage() {
               <div className="h-px w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              Find quick answers to the most common queries about our services.
+              {toParagraphCase(
+                "Find quick answers to the most common queries about our services.",
+              )}
             </p>
           </div>
 
@@ -482,7 +489,7 @@ export default function ContactPage() {
                   {toHeadingCase(faq.q)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
-                  {faq.a}
+                  {toParagraphCase(faq.a)}
                 </p>
               </div>
             ))}

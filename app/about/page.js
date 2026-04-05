@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import {
   Target,
   Eye,
@@ -105,8 +105,9 @@ export default function AboutPage() {
             {toHeadingCase("About us")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
-            Discover the story behind Bluestreak Group and our commitment to
-            excellence across multiple industries.
+            {toParagraphCase(
+              "Discover the story behind Bluestreak Group and our commitment to excellence across multiple industries.",
+            )}
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -117,8 +118,8 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-20">
             <div>
-              <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                Our Story
+              <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+                {toHeadingCase("Our Story")}
               </p>
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-3">
                 {toHeadingCase("Building excellence since day one")}
@@ -130,20 +131,14 @@ export default function AboutPage() {
               </div>
               <div className="space-y-5 text-[15px] text-slate-600 leading-[1.85]">
                 <p>
-                  Bluestreak Group India Pvt. Ltd. is a diversified conglomerate
-                  with a strong presence across automobiles, legal services, oil
-                  manufacturing, transport &amp; cargo, and financial services.
-                  Based in India, we have grown from a single-service startup to
-                  a multi-vertical enterprise trusted by hundreds of clients and
-                  partners nationwide.
+                  {toParagraphCase(
+                    "Bluestreak Group India Pvt. Ltd. is a diversified conglomerate with a strong presence across automobiles, legal services, oil manufacturing, transport & cargo, and financial services. Based in India, we have grown from a single-service startup to a multi-vertical enterprise trusted by hundreds of clients and partners nationwide.",
+                  )}
                 </p>
                 <p>
-                  Our journey has been defined by a relentless pursuit of
-                  quality, innovation, and customer satisfaction. From
-                  manufacturing premium lubricants to restoring vintage
-                  automobiles, from providing expert legal counsel to delivering
-                  cargo across the country &mdash; we bring the same commitment
-                  to excellence in everything we do.
+                  {toParagraphCase(
+                    "Our journey has been defined by a relentless pursuit of quality, innovation, and customer satisfaction. From manufacturing premium lubricants to restoring vintage automobiles, from providing expert legal counsel to delivering cargo across the country — we bring the same commitment to excellence in everything we do.",
+                  )}
                 </p>
               </div>
             </div>
@@ -168,9 +163,9 @@ export default function AboutPage() {
           </div>
 
           <p className="text-[15px] text-slate-600 leading-[1.85] max-w-3xl mb-16">
-            With offices across major cities in India, we serve a growing
-            network of dealers, clients, and partners who trust us for our
-            integrity, expertise, and reliable service delivery.
+            {toParagraphCase(
+              "With offices across major cities in India, we serve a growing network of dealers, clients, and partners who trust us for our integrity, expertise, and reliable service delivery.",
+            )}
           </p>
 
           {/* Stats */}
@@ -199,8 +194,8 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-14">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              What Drives Us
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toHeadingCase("What Drives Us")}
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Mission & Vision")}
@@ -232,10 +227,9 @@ export default function AboutPage() {
                   </h2>
                 </div>
                 <p className="text-[15px] text-slate-600 leading-[1.85]">
-                  To deliver high-quality products and services across automobiles,
-                  legal consultancy, lubricant manufacturing, transport &amp;
-                  cargo, and financial services &mdash; empowering businesses and
-                  individuals with solutions they can trust.
+                  {toParagraphCase(
+                    "To deliver high-quality products and services across automobiles, legal consultancy, lubricant manufacturing, transport & cargo, and financial services — empowering businesses and individuals with solutions they can trust.",
+                  )}
                 </p>
               </div>
             </div>
@@ -259,10 +253,9 @@ export default function AboutPage() {
                   </h2>
                 </div>
                 <p className="text-[15px] text-slate-600 leading-[1.85]">
-                  To be India&apos;s most trusted multi-industry conglomerate,
-                  recognized for excellence in every vertical we operate in,
-                  setting benchmarks for quality, transparency, and
-                  customer-first approach.
+                  {toParagraphCase(
+                    "To be India's most trusted multi-industry conglomerate, recognized for excellence in every vertical we operate in, setting benchmarks for quality, transparency, and customer-first approach.",
+                  )}
                 </p>
               </div>
             </div>
@@ -288,10 +281,9 @@ export default function AboutPage() {
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
               </div>
               <p className="text-[15px] text-slate-600 leading-[1.85] mb-5">
-                Our Foundation reflects our belief in giving back: part of what we
-                earn supports social causes, including old-age home care,
-                improvements in living standards, and gifts and donations for
-                orphanages.
+                {toParagraphCase(
+                  "Our Foundation reflects our belief in giving back: part of what we earn supports social causes, including old-age home care, improvements in living standards, and gifts and donations for orphanages.",
+                )}
               </p>
               <p className="text-[14px] text-slate-500 leading-relaxed mb-6">
                 This initiative is separate from{" "}
@@ -334,7 +326,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-brand-950/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-2xl md:text-3xl font-bold tracking-tight text-center px-6">
-            A Conglomerate Built on Trust &amp; Innovation
+            {toParagraphCase("A Conglomerate Built on Trust & Innovation")}
           </p>
         </div>
       </section>
@@ -343,8 +335,8 @@ export default function AboutPage() {
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="max-w-xl mb-14">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Our Expertise
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toHeadingCase("Our Expertise")}
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Business verticals")}
@@ -355,8 +347,9 @@ export default function AboutPage() {
               <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              A diversified portfolio spanning six key industries, each backed
-              by expert teams and proven processes.
+              {toParagraphCase(
+                "A diversified portfolio spanning six key industries, each backed by expert teams and proven processes.",
+              )}
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -382,7 +375,7 @@ export default function AboutPage() {
                     {toHeadingCase(v.name)}
                   </h3>
                   <p className="text-[13px] text-slate-500 leading-relaxed">
-                    {v.desc}
+                    {toParagraphCase(v.desc)}
                   </p>
                 </div>
               </div>
@@ -402,11 +395,9 @@ export default function AboutPage() {
         }
         body={
           <p className="text-[15px] leading-[1.85] text-white/90">
-            Bluestreak Group India Pvt. Ltd. operates from multiple offices
-            across India, ensuring we are always close to our clients and
-            partners. Our headquarters in Lower Parel, Mumbai, Maharashtra,
-            India, serves as the hub for all our operations, with regional
-            offices enabling us to deliver prompt service across the country.
+            {toParagraphCase(
+              "Bluestreak Group India Pvt. Ltd. operates from multiple offices across India, ensuring we are always close to our clients and partners. Our headquarters in Lower Parel, Mumbai, Maharashtra, India, serves as the hub for all our operations, with regional offices enabling us to deliver prompt service across the country.",
+            )}
           </p>
         }
       />

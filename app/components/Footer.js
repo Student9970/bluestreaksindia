@@ -8,7 +8,7 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -60,9 +60,9 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-slate-400 text-[13.5px] leading-relaxed max-w-xs">
-              A diversified business group delivering premium solutions across
-              automobiles, lubricants, legal advisory, transport &amp; cargo,
-              and financial services across India.
+              {toParagraphCase(
+                "A diversified business group delivering premium solutions across automobiles, lubricants, legal advisory, transport and cargo, and financial services across India.",
+              )}
             </p>
             <p className="text-slate-500 text-[12.5px] leading-relaxed max-w-xs mt-3">
               Through{" "}
@@ -72,8 +72,10 @@ export default function Footer() {
               >
                 Bluestreak Foundation
               </Link>
-              , we channel part of our earnings into social causes and community
-              support.
+              {", "}
+              {toParagraphCase(
+                "we channel part of our earnings into social causes and community support.",
+              )}
             </p>
           </div>
 
@@ -132,8 +134,8 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <Headset className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
                 <span className="text-[13.5px] text-slate-400 leading-relaxed">
-                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-gold-500/90 mb-0.5">
-                    Grievances &amp; Hotline
+                  <span className="block text-[11px] font-semibold tracking-wider text-gold-500/90 mb-0.5">
+                    {toHeadingCase("Grievances & Hotline")}
                   </span>
                   +91 95351 72871
                 </span>
@@ -147,13 +149,17 @@ export default function Footer() {
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
                 <span className="text-[13.5px] text-slate-400">
-                  Lower Parel Mumbai, Maharashtra, India
+                  {toParagraphCase(
+                    "Lower Parel Mumbai, Maharashtra, India",
+                  )}
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 mt-0.5 text-gold-400/70 shrink-0" />
                 <span className="text-[13.5px] text-slate-400">
-                  Mon &ndash; Sat: 9:00 AM &ndash; 6:00 PM
+                  {toParagraphCase(
+                    "Mon – Sat: 9:00 AM – 6:00 PM",
+                  )}
                 </span>
               </li>
             </ul>
@@ -163,21 +169,23 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[12.5px] text-slate-500">
-            &copy; {new Date().getFullYear()} Bluestreak India Private Limited.
-            All rights reserved.
+            &copy; {new Date().getFullYear()}{" "}
+            {toParagraphCase(
+              "Bluestreak India Private Limited. All rights reserved.",
+            )}
           </p>
           <div className="flex gap-5">
             <a
               href="#"
               className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors"
             >
-              Privacy Policy
+              {toHeadingCase("Privacy policy")}
             </a>
             <a
               href="#"
               className="text-[12.5px] text-slate-500 hover:text-slate-300 transition-colors"
             >
-              Terms of Service
+              {toHeadingCase("Terms of service")}
             </a>
           </div>
         </div>

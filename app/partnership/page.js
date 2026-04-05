@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import FormMessageDialog from "../components/FormMessageDialog";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import {
   TrendingUp,
   ShieldCheck,
@@ -171,8 +171,9 @@ export default function PartnershipPage() {
               {toHeadingCase("Become our partner")}
             </h1>
             <p className="mt-4 text-brand-200/70 text-[16px] leading-relaxed">
-              Join us for a profitable partnership. Expand your business with
-              Bluestreak Group&apos;s trusted products and services.
+              {toParagraphCase(
+                "Join us for a profitable partnership. Expand your business with Bluestreak Group's trusted products and services.",
+              )}
             </p>
           </div>
         </div>
@@ -184,8 +185,8 @@ export default function PartnershipPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center mb-16">
             <div>
-              <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                Partnership Benefits
+              <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+                {toHeadingCase("Partnership Benefits")}
               </p>
               <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
                 {toHeadingCase("Why partner with us")}
@@ -196,10 +197,9 @@ export default function PartnershipPage() {
                 <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
               </div>
               <p className="text-slate-500 text-[15px] leading-relaxed">
-                Our partners enjoy exceptional margins, dedicated support,
-                and the backing of a trusted brand. We invest in your success
-                with training, marketing materials, and flexible inventory
-                management.
+                {toParagraphCase(
+                  "Our partners enjoy exceptional margins, dedicated support, and the backing of a trusted brand. We invest in your success with training, marketing materials, and flexible inventory management.",
+                )}
               </p>
             </div>
             <div className="relative h-72 rounded-2xl overflow-hidden shadow-2xl">
@@ -226,7 +226,7 @@ export default function PartnershipPage() {
                     {toHeadingCase(item.name)}
                   </h3>
                   <p className="text-[13px] text-slate-500 leading-relaxed">
-                    {item.desc}
+                    {toParagraphCase(item.desc)}
                   </p>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export default function PartnershipPage() {
         <div className="absolute inset-0 bg-brand-950/60" />
         <div className="absolute inset-0 flex items-center justify-center">
           <p className="text-white text-2xl md:text-3xl font-bold tracking-tight text-center px-6">
-            Join 200+ Partners Across India
+            {toParagraphCase("Join 200+ Partners Across India")}
           </p>
         </div>
       </section>
@@ -255,8 +255,8 @@ export default function PartnershipPage() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-16">
-            <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Get Started
+            <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+              {toHeadingCase("Get Started")}
             </p>
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("How to partner with us")}
@@ -267,7 +267,9 @@ export default function PartnershipPage() {
               <div className="h-px w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              Simple 4-step process to start your partnership with us.
+              {toParagraphCase(
+                "Simple 4-step process to start your partnership with us.",
+              )}
             </p>
           </div>
 
@@ -287,7 +289,7 @@ export default function PartnershipPage() {
                   {toHeadingCase(item.title)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
-                  {item.desc}
+                  {toParagraphCase(item.desc)}
                 </p>
               </div>
             ))}
@@ -310,8 +312,8 @@ export default function PartnershipPage() {
                 />
               </div>
 
-              <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
-                What You Get
+              <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
+                {toHeadingCase("What You Get")}
               </p>
               <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-8">
                 {toHeadingCase("Benefits we offer")}

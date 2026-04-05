@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import {
   Scale,
   Droplets,
@@ -187,8 +187,9 @@ export default function ServicesPage() {
             {toHeadingCase("Our services")}
           </h1>
           <p className="mt-4 text-brand-200 text-shadow-md text-[16px] max-w-xl leading-relaxed">
-            Legal expertise, judiciary trust management, and premium lubricant
-            manufacturing &mdash; three pillars of the Bluestreak Group.
+            {toParagraphCase(
+              "Legal expertise, judiciary trust management, and premium lubricant manufacturing — three pillars of the Bluestreak Group.",
+            )}
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -235,12 +236,12 @@ export default function ServicesPage() {
               className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16 ${idx % 2 === 1 ? "" : ""}`}
             >
               <div className={idx % 2 === 1 ? "lg:order-2" : ""}>
-                <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest mb-3">
+                <p className="text-gold-500 text-[12px] font-bold tracking-widest mb-3">
                   {idx === 0
-                    ? "Legal Services"
+                    ? toHeadingCase("Legal Services")
                     : idx === 1
-                      ? "Fiduciary Services"
-                      : "Manufacturing"}
+                      ? toHeadingCase("Fiduciary Services")
+                      : toHeadingCase("Manufacturing")}
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   {toHeadingCase(section.title)}
@@ -251,12 +252,13 @@ export default function ServicesPage() {
                   <div className="h-px flex-1 max-w-[50px] bg-linear-to-l from-gold-400 to-gold-200" />
                 </div>
                 <p className="text-slate-500 text-[15px] leading-relaxed">
-                  {section.description}
+                  {toParagraphCase(section.description)}
                 </p>
                 {section.id === "trustees" ? (
                   <p className="mt-4 text-slate-600 text-[14px] leading-relaxed">
-                    For corporate philanthropy and community programmes led by the
-                    group, see{" "}
+                    {toParagraphCase(
+                      "For corporate philanthropy and community programmes led by the group, see",
+                    )}{" "}
                     <Link
                       href="/foundation"
                       className="font-semibold text-brand-700 hover:text-brand-800 underline underline-offset-2"
@@ -308,7 +310,7 @@ export default function ServicesPage() {
                       {toHeadingCase(feat.name)}
                     </h3>
                     <p className="text-[13px] text-slate-500 leading-relaxed">
-                      {feat.desc}
+                      {toParagraphCase(feat.desc)}
                     </p>
                   </div>
                 </div>
@@ -330,8 +332,9 @@ export default function ServicesPage() {
         }
         body={
           <p className="text-[15px] leading-relaxed text-white/90">
-            Whether you need legal counsel, trust management, or premium
-            lubricants &mdash; our team is ready to help. Reach out today.
+            {toParagraphCase(
+              "Whether you need legal counsel, trust management, or premium lubricants — our team is ready to help. Reach out today.",
+            )}
           </p>
         }
         primaryAction={{ href: "/contact", label: "Contact Us" }}

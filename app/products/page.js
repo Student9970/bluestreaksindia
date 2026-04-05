@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { SITE_IMG, LUBRICANT_GALLERY } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import { Package, Sparkles } from "lucide-react";
 
 const categories = [
@@ -72,8 +72,9 @@ export default function ProductsPage() {
             {toHeadingCase("Products")}
           </h1>
           <p className="mt-4 text-brand-200/70 text-[16px] max-w-xl leading-relaxed">
-            Premium oils, lubricants, coolants, greases, and industrial products
-            &mdash; manufactured for performance and reliability.
+            {toParagraphCase(
+              "Premium oils, lubricants, coolants, greases, and industrial products — manufactured for performance and reliability.",
+            )}
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -83,14 +84,16 @@ export default function ProductsPage() {
       <section className="py-20 bg-slate-50 border-b border-slate-100 md:border-t">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
-              Authentic Bluestreak
+            <p className="text-brand-600 text-[12px] font-bold tracking-[0.2em] mb-3">
+              {toHeadingCase("Authentic Bluestreak")}
             </p>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Facilities & product photography")}
             </h2>
             <p className="mt-4 text-slate-500 text-[15px] leading-relaxed">
-              Real imagery from our plant, showroom, and lubricant range.
+              {toParagraphCase(
+                "Real imagery from our plant, showroom, and lubricant range.",
+              )}
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -131,7 +134,9 @@ export default function ProductsPage() {
           </div>
 
           <p className="text-[13px] text-slate-400 mb-6">
-            Showing {filtered.length} product{filtered.length !== 1 && "s"}
+            {toParagraphCase(
+              `Showing ${filtered.length} product${filtered.length !== 1 ? "s" : ""}`,
+            )}
           </p>
 
           {loading ? (
@@ -188,11 +193,11 @@ export default function ProductsPage() {
                         </p>
                       ) : (
                         <p className="text-[13px] text-slate-400 italic mb-2">
-                          Price on request
+                          {toParagraphCase("Price on request")}
                         </p>
                       )}
                       <p className="text-[13px] text-slate-500 leading-relaxed">
-                        {product.desc}
+                        {toParagraphCase(product.desc)}
                       </p>
                     </div>
                   </div>
@@ -202,7 +207,7 @@ export default function ProductsPage() {
               {filtered.length === 0 && (
                 <div className="text-center py-20">
                   <p className="text-slate-400 text-[15px]">
-                    No products found in this category.
+                    {toParagraphCase("No products found in this category.")}
                   </p>
                 </div>
               )}

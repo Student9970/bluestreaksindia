@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "../components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import { Sparkles, HeartHandshake, ArrowRight } from "lucide-react";
 
 export const metadata = {
@@ -49,9 +49,9 @@ export default function FoundationPage() {
             {toHeadingCase("Bluestreak Foundation")}
           </h1>
           <p className="mt-4 text-brand-200/90 text-[16px] max-w-2xl leading-relaxed">
-            Community and philanthropy are part of how we operate — not separate
-            from our business, but integral to the trust we aim to earn every
-            day.
+            {toParagraphCase(
+              "Community and philanthropy are part of how we operate — not separate from our business, but integral to the trust we aim to earn every day.",
+            )}
           </p>
         </div>
         <div className="hidden md:block absolute bottom-0 left-0 right-0 h-16 bg-linear-to-t from-white to-transparent" />
@@ -65,8 +65,8 @@ export default function FoundationPage() {
                 <div className="w-12 h-12 bg-linear-to-br from-emerald-500 to-teal-700 rounded-xl flex items-center justify-center shadow-md">
                   <HeartHandshake className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-gold-500 text-[12px] font-bold uppercase tracking-widest">
-                  Our commitment
+                <p className="text-gold-500 text-[12px] font-bold tracking-widest">
+                  {toHeadingCase("Our commitment")}
                 </p>
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight mb-4">
@@ -104,8 +104,9 @@ export default function FoundationPage() {
                 services to clients.
               </p>
               <p className="text-[14px] text-slate-500 leading-[1.85]">
-                If you would like to connect with us regarding partnerships or
-                outreach, please reach out through our contact channels.
+                {toParagraphCase(
+                  "If you would like to connect with us regarding partnerships or outreach, please reach out through our contact channels.",
+                )}
               </p>
               <Link
                 href="/contact"
@@ -130,9 +131,9 @@ export default function FoundationPage() {
         }
         body={
           <p className="text-[15px] leading-[1.85] text-white/90">
-            From automobiles and lubricants to legal advisory and fiduciary
-            services — discover how we serve clients and communities across
-            India.
+            {toParagraphCase(
+              "From automobiles and lubricants to legal advisory and fiduciary services — discover how we serve clients and communities across India.",
+            )}
           </p>
         }
         primaryAction={{ href: "/about", label: "About us" }}

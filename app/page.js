@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitCtaBanner from "./components/SplitCtaBanner";
 import { SITE_IMG } from "@/lib/site-images";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 import {
   ArrowRight,
   Award,
@@ -174,13 +174,15 @@ export default function Home() {
           </div>
 
           <p className="animate-fade-in-up-delay-2 text-xl sm:text-2xl text-white font-medium italic tracking-wide [text-shadow:0_0_1px_rgba(0,0,0,0.9),0_1px_3px_rgba(0,0,0,0.95),0_2px_16px_rgba(0,0,0,0.65)]">
-            Building Businesses. Creating Global Value.
+            {toParagraphCase(
+              "Building Businesses. Creating Global Value.",
+            )}
           </p>
 
           <p className="animate-fade-in-up-delay-3 mt-6 text-[15px] text-white leading-relaxed max-w-2xl mx-auto font-medium [text-shadow:0_0_1px_rgba(0,0,0,0.85),0_1px_2px_rgba(0,0,0,0.9),0_2px_20px_rgba(0,0,0,0.6)]">
-            A diversified business group operating across automobiles,
-            lubricants, logistics, finance, legal advisory and fiduciary
-            services.
+            {toParagraphCase(
+              "A diversified business group operating across automobiles, lubricants, logistics, finance, legal advisory and fiduciary services.",
+            )}
           </p>
 
           <div className="animate-fade-in-up-delay-3 mt-10 flex flex-wrap justify-center gap-4">
@@ -208,8 +210,8 @@ export default function Home() {
       <section id="divisions" className="py-28">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-20">
-            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
-              What We Do
+            <p className="text-brand-600 text-[12px] font-bold tracking-[0.2em] mb-3">
+              {toParagraphCase("What we do")}
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Our business divisions")}
@@ -220,8 +222,9 @@ export default function Home() {
               <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
             </div>
             <p className="mt-5 text-slate-500 text-[15px] leading-relaxed">
-              A diversified portfolio of businesses delivering excellence across
-              multiple industries.
+              {toParagraphCase(
+                "A diversified portfolio of businesses delivering excellence across multiple industries.",
+              )}
             </p>
           </div>
 
@@ -245,8 +248,8 @@ export default function Home() {
                       <div className="w-8 h-8 bg-white/15 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20">
                         <div.icon className="w-4 h-4 text-white" />
                       </div>
-                      <span className="text-[11px] font-semibold text-gold-300 uppercase tracking-widest">
-                        {div.subtitle}
+                      <span className="text-[11px] font-semibold text-gold-300 tracking-widest">
+                        {toHeadingCase(div.subtitle)}
                       </span>
                     </div>
                     <h3 className="text-[18px] font-bold text-white leading-snug">
@@ -262,13 +265,13 @@ export default function Home() {
                         className="flex items-center gap-3 text-[13.5px] text-slate-600"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0" />
-                        {point}
+                        {toParagraphCase(point)}
                       </li>
                     ))}
                   </ul>
                   {div.footnote && (
                     <p className="mt-4 pt-3 border-t border-slate-100 text-[12px] text-slate-400 italic leading-relaxed">
-                      {div.footnote}
+                      {toParagraphCase(div.footnote)}
                     </p>
                   )}
                   <div className="mt-4 flex items-center gap-1.5 text-[13px] font-semibold text-brand-600 group-hover:text-brand-700 transition-colors">
@@ -306,9 +309,9 @@ export default function Home() {
                   {toHeadingCase("Giving back to society")}
                 </h2>
                 <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
-                  We dedicate a portion of our earnings to social causes — from
-                  old-age homes and living standards to orphanages and charitable
-                  outreach across the communities we serve.
+                  {toParagraphCase(
+                    "We dedicate a portion of our earnings to social causes — from old-age homes and living standards to orphanages and charitable outreach across the communities we serve.",
+                  )}
                 </p>
                 <Link
                   href="/foundation"
@@ -327,8 +330,8 @@ export default function Home() {
       <section className="py-28 bg-slate-50 border-y border-slate-100">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-brand-600 text-[12px] font-bold uppercase tracking-[0.2em] mb-3">
-              Our Promise
+            <p className="text-brand-600 text-[12px] font-bold tracking-[0.2em] mb-3">
+              {toParagraphCase("Our promise")}
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
               {toHeadingCase("Why choose Bluestreak Group?")}
@@ -355,7 +358,7 @@ export default function Home() {
                   {toHeadingCase(item.name)}
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">
-                  {item.desc}
+                  {toParagraphCase(item.desc)}
                 </p>
               </div>
             ))}
@@ -390,14 +393,14 @@ export default function Home() {
                 <span className="w-8 h-[2px] bg-brand-600 rounded-full" />
               </div>
               <p className="mt-6 text-slate-600 text-[15px] leading-relaxed">
-                Our plants and facilities reflect the same discipline we bring to
-                every vertical: modern processes, rigorous standards, and the
-                capacity to serve partners and customers across India.
+                {toParagraphCase(
+                  "Our plants and facilities reflect the same discipline we bring to every vertical: modern processes, rigorous standards, and the capacity to serve partners and customers across India.",
+                )}
               </p>
               <p className="mt-4 text-slate-500 text-[14px] leading-relaxed">
-                From lubricants to logistics and beyond, we invest in physical
-                infrastructure so your business can rely on consistent supply,
-                safety, and service.
+                {toParagraphCase(
+                  "From lubricants to logistics and beyond, we invest in physical infrastructure so your business can rely on consistent supply, safety, and service.",
+                )}
               </p>
               <Link
                 href="/contact"
@@ -424,9 +427,9 @@ export default function Home() {
         }
         body={
           <p className="text-[15px] leading-relaxed text-white/90">
-            Whether you need automobile services, finance and advisory, legal
-            counsel, lubricants, or logistics &mdash; Bluestreak Group has you
-            covered.
+            {toParagraphCase(
+              "Whether you need automobile services, finance and advisory, legal counsel, lubricants, or logistics — Bluestreak Group has you covered.",
+            )}
           </p>
         }
         primaryAction={{

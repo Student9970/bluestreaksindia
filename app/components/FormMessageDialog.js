@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
-import { toHeadingCase } from "@/lib/headingCase";
+import { toHeadingCase, toParagraphCase } from "@/lib/headingCase";
 
 /**
  * Modal confirmation after form submit (replaces browser alert).
@@ -71,7 +71,7 @@ export default function FormMessageDialog({
           id="form-message-desc"
           className="mt-3 text-[14px] text-slate-600 leading-relaxed"
         >
-          {message}
+          {toParagraphCase(message)}
         </p>
         <button
           type="button"
